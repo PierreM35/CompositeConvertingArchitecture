@@ -1,0 +1,23 @@
+﻿using CompositeConvertingArchitecture.Domain.Abstractions;
+using CompositeConvertingArchitecture.Domain.Model;
+
+namespace CompositeConvertingArchitecture.Standards.V1
+{
+    public class Container2(Parameter2 param2, IEnumerable<Parameter3> param3s, SomeEnum someEnum) : 
+        Container(GatherEncodables(param2, param3s))
+    {
+        private static List<Encodable> GatherEncodables(Parameter2 param2, IEnumerable<Parameter3> param3s)
+        {
+            var encodables = new List<Encodable> { param2, new Repeater(true) };
+
+            var enumerator = param3s.GetEnumerator();
+            while (enumerator.MoveNext()) 
+                encodables.AddRange([enumerator.Current, new Repeater(true)]);
+
+            encodables.RemoveAt(encodables.Count - 1);
+            encodables.Add(new Repeater(false));
+
+            return encodables;
+        }
+    }
+}
