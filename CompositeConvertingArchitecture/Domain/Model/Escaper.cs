@@ -2,10 +2,11 @@
 
 namespace CompositeConvertingArchitecture.Domain.Model
 {
-    public class Escaper(bool activ) : Encodable
+    public class Escaper(bool escape) : Encodable
     {
-        public bool Activ { get; } = activ;
+        public bool Escape { get; } = escape;
+        public bool DontEscape => !Escape;
 
-        public override string Encode() => Activ ? "0" : "1";
+        public override Code Encode() => new(DontEscape);
     }
 }

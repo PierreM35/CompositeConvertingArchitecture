@@ -1,4 +1,5 @@
 ﻿using CompositeConvertingArchitecture.Domain.Encoding;
+using CompositeConvertingArchitecture.Domain.Model;
 
 namespace CompositeConvertingArchitecture.Domain.Abstractions
 {
@@ -21,7 +22,7 @@ namespace CompositeConvertingArchitecture.Domain.Abstractions
             throw new InvalidOperationException("Index invalid");
         }
 
-        public override string Encode()
+        public override Code Encode()
         {
             var coder = new ByteEncoder(bitSize);
             return coder.Encode(index);

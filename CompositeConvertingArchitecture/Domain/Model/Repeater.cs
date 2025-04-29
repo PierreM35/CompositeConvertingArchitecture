@@ -2,10 +2,10 @@
 
 namespace CompositeConvertingArchitecture.Domain.Model
 {
-    public class Repeater(bool isActiv) : Encodable
+    public class Repeater(bool repeat) : Encodable
     {
-        public bool IsActiv { get; } = isActiv;
+        public bool Repeat { get; } = repeat;
 
-        public override string Encode() => IsActiv ? "0" : "1";
+        public override Code Encode() => new(Repeat);
     }
 }

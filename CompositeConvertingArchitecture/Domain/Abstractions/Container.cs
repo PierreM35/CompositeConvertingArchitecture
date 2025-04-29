@@ -1,5 +1,4 @@
 ﻿using CompositeConvertingArchitecture.Domain.Model;
-using System.Text;
 
 namespace CompositeConvertingArchitecture.Domain.Abstractions
 {
@@ -7,9 +6,9 @@ namespace CompositeConvertingArchitecture.Domain.Abstractions
     {
         public IEnumerable<Encodable> Encodables { get; } = encodables;         //IEnumerable -> immutable
 
-        public override string Encode()
+        public override Code Encode()
         {
-            var code = new StringBuilder();
+            var code = new Code();
             var escape = false;
             var enumerator = Encodables.GetEnumerator();
             while (enumerator.MoveNext())
@@ -20,11 +19,11 @@ namespace CompositeConvertingArchitecture.Domain.Abstractions
                 else
                     code.Append(encodable.Encode());
 
-                if (encodable is Escaper escaper && escaper.Activ)
+                if (encodable is Escaper escaper && escaper.Escape)
                     escape = true;
             }
 
-            return code.ToString();
+            return code;
         }
     }
 }

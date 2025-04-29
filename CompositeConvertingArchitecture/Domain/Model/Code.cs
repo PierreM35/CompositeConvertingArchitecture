@@ -1,5 +1,4 @@
-﻿using CompositeConvertingArchitecture.Domain.Abstractions;
-using CompositeConvertingArchitecture.Domain.Coding;
+﻿using CompositeConvertingArchitecture.Domain.Coding;
 using CompositeConvertingArchitecture.Domain.Extensions;
 
 namespace CompositeConvertingArchitecture.Domain.Model
@@ -7,6 +6,16 @@ namespace CompositeConvertingArchitecture.Domain.Model
     public class Code
     {
         private readonly Queue<bool> bits;
+
+        public Code()
+        {
+            bits = new Queue<bool>();
+        }
+
+        public Code(bool bit) : this()
+        {
+            bits.Enqueue(bit);
+        }
 
         public Code(IEnumerable<bool> bits)
         {
@@ -35,6 +44,12 @@ namespace CompositeConvertingArchitecture.Domain.Model
         {
             var decoder = new IdCoder();
             return decoder.Decode(Extract(IdCoder.IdBitsNb));
+        }
+
+        public void Append(Code code)
+        {
+            for (int i = 0; i < code.bits.Count; i++) 
+                bits.Enqueue(code.bits.Peek());
         }
 
         private Code Extract(byte quantity) => new(bits.Dequeue(quantity));

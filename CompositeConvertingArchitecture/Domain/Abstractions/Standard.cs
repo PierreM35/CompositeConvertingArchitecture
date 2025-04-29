@@ -1,18 +1,16 @@
-﻿
-using CompositeConvertingArchitecture.Domain.Model;
+﻿using CompositeConvertingArchitecture.Domain.Model;
 
 namespace CompositeConvertingArchitecture.Domain.Abstractions
 {
-    public abstract class Standard(int id, IEnumerable<KeyValuePair<Type, ContainerDescription>> containerDescriptions)
+    public abstract class Standard(int id, IEnumerable<KeyValuePair<Type, ContainerDescription>?> containerDescriptions)
     {
         public int Id { get; } = id;
-        public IEnumerable<KeyValuePair<Type, ContainerDescription>> ContainerDescriptions { get; } = containerDescriptions;
+        public IEnumerable<KeyValuePair<Type, ContainerDescription>?> ContainerDescriptions { get; } = containerDescriptions;
 
         public Container Decode(Code code, int containerId)
         {
             var containerDescription = ContainerDescriptions
-                .Where(kvp => kvp.Value.Id == containerId)
-                .Select(e => (KeyValuePair<Type, ContainerDescription>?)e)  
+                .Where(kvp => kvp.Value.Value.Id == containerId)
                 .FirstOrDefault();
 
             if (containerDescription == null)
