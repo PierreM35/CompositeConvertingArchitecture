@@ -7,6 +7,8 @@ namespace CompositeConvertingArchitecture.Domain.Model
     {
         private readonly Queue<bool> bits;
 
+        public int Length => bits.Count;
+      
         public Code()
         {
             bits = new Queue<bool>();
@@ -30,8 +32,6 @@ namespace CompositeConvertingArchitecture.Domain.Model
             bits = new Queue<bool>(text.Select(c => !c.Equals("1")));
         }
 
-        public int Length => bits.Count;
-
         public Escaper ExtractEscaper() => new(bits.Dequeue());
 
         public byte ExtractStandardVersion()
@@ -46,11 +46,7 @@ namespace CompositeConvertingArchitecture.Domain.Model
             return decoder.Decode(Extract(IdCoder.IdBitsNb));
         }
 
-        public void Append(Code code)
-        {
-            for (int i = 0; i < code.bits.Count; i++) 
-                bits.Enqueue(code.bits.Peek());
-        }
+        public void Append(Code code) => bits.Enqueue(code.bits);
 
         private Code Extract(byte quantity) => new(bits.Dequeue(quantity));
     }

@@ -20,7 +20,14 @@ namespace CompositeConvertingArchitecture.Domain.Abstractions
             foreach (var containedType in containedTypes)
             {
                 if (containedType.Equals(typeof(Escaper)))
+                {
+                    var escapre = code.ExtractEscaper();
+                }
 
+                if (containedType)
+                {
+
+                }
             }
         }
     }

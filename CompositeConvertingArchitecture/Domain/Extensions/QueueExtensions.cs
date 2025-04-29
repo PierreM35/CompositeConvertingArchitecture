@@ -11,5 +11,8 @@ namespace CompositeConvertingArchitecture.Domain.Extensions
 
             return items;
         }
+
+        public static void Enqueue<T>(this Queue<T> queue, IEnumerable<T> items) 
+            => items.ToList().ForEach(queue.Enqueue);
     }
 }
