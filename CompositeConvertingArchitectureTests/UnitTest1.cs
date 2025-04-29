@@ -1,6 +1,6 @@
-using CompositeConvertingArchitecture;
 using CompositeConvertingArchitecture.Application;
 using CompositeConvertingArchitecture.Domain.Model;
+using CompositeConvertingArchitecture.Domain.Standards;
 using CompositeConvertingArchitecture.Infrastructure;
 using CompositeConvertingArchitecture.Standards.V1;
 

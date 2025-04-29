@@ -1,5 +1,6 @@
 ﻿using CompositeConvertingArchitecture.Domain.Abstractions;
 using CompositeConvertingArchitecture.Domain.Model;
+using CompositeConvertingArchitecture.Domain.Standards;
 
 namespace CompositeConvertingArchitecture.Infrastructure
 {

@@ -1,6 +1,6 @@
 ﻿using CompositeConvertingArchitecture.Domain.Abstractions;
 
-namespace CompositeConvertingArchitecture
+namespace CompositeConvertingArchitecture.Domain.Standards
 {
     public static class StandardSource
     {

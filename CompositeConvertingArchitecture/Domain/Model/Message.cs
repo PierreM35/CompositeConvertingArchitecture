@@ -1,6 +1,7 @@
 ﻿using CompositeConvertingArchitecture.Domain.Abstractions;
 using CompositeConvertingArchitecture.Domain.Coding;
 using CompositeConvertingArchitecture.Domain.Encoding;
+using CompositeConvertingArchitecture.Domain.Standards;
 using System.Text;
 
 namespace CompositeConvertingArchitecture.Domain.Model
