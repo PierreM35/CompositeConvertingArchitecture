@@ -17,7 +17,7 @@ namespace CompositeConvertingArchitecture.Domain.Standards.V1
             => new(param2, param3s, someEnum);
         public SomeEnum GenerateSomeEnum(byte index, byte bitSize) => new(index, bitSize);
 
-        private static IEnumerable<KeyValuePair<Type, ContainerDescription>> GetContainerDescriptions() => 
+        private static IDictionary<Type, ContainerDescription> GetContainerDescriptions() => 
             new Dictionary<Type, ContainerDescription>
             {
                 {

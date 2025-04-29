@@ -14,16 +14,16 @@ namespace CompositeConvertingArchitecture.Domain.Model
         public Message(byte standardVersion, Container container)
         {
             var standard = StandardSource.Standards[standardVersion];
-            var keyValuePair = standard.ContainerDescriptions.FirstOrDefault(kvp => kvp.Value.Key == container.GetType());
-            if (keyValuePair == null)
+            var keyValuePair = standard.ContainerDescriptions.FirstOrDefault(kvp => kvp.Key == container.GetType());
+            if (keyValuePair.Equals(default(KeyValuePair<Type, ContainerDescription>)))
                 throw new InvalidOperationException();
             
-            if (!keyValuePair.Value.Value.IsMessagable)
+            if (!keyValuePair.Value.IsMessagable)
                 throw new ArgumentException("Message not sendable!");
 
             _standardVersion = standardVersion;
             _container = container;
-            _containerId = keyValuePair.Value.Value.Id;
+            _containerId = keyValuePair.Value.Id;
         }
 
         public override Code Encode()
