@@ -1,5 +1,5 @@
-﻿
-using CompositeConvertingArchitecture.Domain.Abstractions;
+﻿using CompositeConvertingArchitecture.Domain.Abstractions;
+using CompositeConvertingArchitecture.Domain.Model;
 
 namespace CompositeConvertingArchitecture.Domain.Coding
 {
@@ -7,12 +7,12 @@ namespace CompositeConvertingArchitecture.Domain.Coding
     {
         public static byte IdBitsNb { get; } = 5;
 
-        public override byte Decode(string value)
+        public override byte Decode(Code code)
         {
             throw new NotImplementedException();
         }
 
-        public override string Encode(byte value)
+        public override Code Encode(byte value)
         {
             throw new NotImplementedException();
         }

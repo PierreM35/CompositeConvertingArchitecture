@@ -1,4 +1,5 @@
 ﻿using CompositeConvertingArchitecture.Domain.Abstractions;
+using CompositeConvertingArchitecture.Domain.Model;
 
 namespace CompositeConvertingArchitecture.Domain.Encoding
 {
@@ -6,7 +7,7 @@ namespace CompositeConvertingArchitecture.Domain.Encoding
     {
         private readonly byte _bitNumber = bitNumber;
 
-        public override string Encode(int value)
+        public override Code Encode(int value)
         {
             if (value > Math.Pow(2, _bitNumber) - 1)
                 throw new ArgumentException($"Value {value} not convertible into {_bitNumber} bites");
@@ -14,7 +15,7 @@ namespace CompositeConvertingArchitecture.Domain.Encoding
             throw new NotImplementedException();
         }
 
-        public override int Decode(string code)
+        public override int Decode(Code code)
         {
             if (code.Length != _bitNumber)
                 throw new ArgumentException($"Awaited code must have {_bitNumber} bits. Has {code.Length}.");

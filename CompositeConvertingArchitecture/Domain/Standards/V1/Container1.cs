@@ -1,9 +1,9 @@
 ﻿using CompositeConvertingArchitecture.Domain.Abstractions;
 using CompositeConvertingArchitecture.Domain.Model;
 
-namespace CompositeConvertingArchitecture.Standards.V1
+namespace CompositeConvertingArchitecture.Domain.Standards.V1
 {
-    public class Container1(Parameter1 param1, Parameter2 param2, Parameter3 param3, Container2 container2) : 
+    public class Container1(Parameter1 param1, Parameter2 param2, Parameter3 param3, Container2 container2) :
         Container(GatherEncodables(param1, param2, container2, param3))
     {
         private static List<Encodable> GatherEncodables(Parameter1 param1, Parameter2 param2, Container2 container2, Parameter3 param3)

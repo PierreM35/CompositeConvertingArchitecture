@@ -1,4 +1,5 @@
 ﻿using CompositeConvertingArchitecture.Domain.Abstractions;
+using CompositeConvertingArchitecture.Domain.Model;
 
 namespace CompositeConvertingArchitecture.Domain.Encoding
 {
@@ -13,12 +14,12 @@ namespace CompositeConvertingArchitecture.Domain.Encoding
             this.bitNumberExp = bitNumberExp;
         }
 
-        public override double Decode(string value)
+        public override double Decode(Code code)
         {
             throw new NotImplementedException();
         }
 
-        public override string Encode(double value)
+        public override Code Encode(double value)
         {
             throw new NotImplementedException();
         }

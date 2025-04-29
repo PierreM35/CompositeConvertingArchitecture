@@ -7,12 +7,18 @@ namespace CompositeConvertingArchitecture.Infrastructure
     {
         public event EventHandler<Message> MessageReceived;
 
-        public void Receive(string code) => MessageReceived?.Invoke(this, Decode(code));      //for testing
+        public void Receive(string text) => MessageReceived?.Invoke(this, Decode(text));      //for testing
 
-        private Message Decode(string code)
+        private static Message Decode(string text)
         {
-            var codeWrapper = new Decoder(code);
-            return codeWrapper.Decode();
+            var code = new Code(text);
+
+            var stdVersion = code.ExtractStandardVersion();
+            var standard = StandardSource.Standards[stdVersion];
+            
+            var containerId = code.ExtractContainerId();
+
+            return new Message(stdVersion, standard.Decode(code, containerId));
         }
     }
 }
