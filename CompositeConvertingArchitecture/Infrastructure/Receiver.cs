@@ -14,14 +14,15 @@ namespace CompositeConvertingArchitecture.Infrastructure
         private static Message Decode(bool[] bits)
         {
             var code = new Code(bits);
-
             var stdVersion = code.Extract(new StdVersionCoder());
             var standard = StandardSource.Standards[stdVersion];
 
+            var coder = new IdCoder();
+            
             return new Message(
                 stdVersion, 
-                code.Extract(new IdCoder()), 
-                standard.Decode(code, code.Extract(new IdCoder())));
+                code.Extract(coder), 
+                standard.Decode(code, code.Extract(coder)));
         }
     }
 }

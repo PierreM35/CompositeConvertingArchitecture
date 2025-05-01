@@ -2,16 +2,16 @@
 
 namespace CompositeConvertingArchitecture.Domain.Abstractions
 {
-    public abstract class Standard(int id, Dictionary<byte, Func<Code, Container>> factoryMethodes)
+    public abstract class Standard(int id, Dictionary<byte, Func<Code, Container>> factoryMethods)
     {      
         public int Id { get; } = id;
 
         public Container Decode(Code code, byte containerId)
         {
-            if (!factoryMethodes.ContainsKey(containerId))
+            if (!factoryMethods.ContainsKey(containerId))
                 throw new InvalidOperationException($"No container with Id {containerId} is registered in Standard version {Id}");
 
-            return factoryMethodes[containerId].Invoke(code);
+            return factoryMethods[containerId].Invoke(code);
         }
     }
 }
