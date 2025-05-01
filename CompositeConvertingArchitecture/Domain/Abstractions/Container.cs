@@ -2,7 +2,7 @@
 
 namespace CompositeConvertingArchitecture.Domain.Abstractions
 {
-    public class Container(IEnumerable<Encodable> encodables) : Encodable()
+    public abstract class Container(IEnumerable<Encodable> encodables) : Encodable()
     {
         public IEnumerable<Encodable> Encodables { get; } = encodables;         //IEnumerable -> immutable
 

@@ -12,23 +12,8 @@ namespace CompositeConvertingArchitecture.Domain.Standards.V1
         private static Dictionary<byte, Func<Code, Container>> GetFactoryMethods()
             => new()
             {
-                { 1, Container1.CreateFrom }
+                { 1, Container1.CreateFrom },
+                { 2, Container2.CreateFrom }
             };
-
-        //private static Dictionary<byte, ContainerDescription> GetContainerDescriptions() =>
-        //    new()
-        //    {
-        //        { 1, Container1.GetDescription() },
-        //        {
-        //            2,
-        //            new ContainerDescription(
-        //            [
-        //                typeof(Parameter2),
-        //                typeof(List<Parameter3>),
-        //                typeof(SomeEnum)
-        //            ],
-        //            true)
-        //        }
-        //    };
     }
 }

@@ -3,9 +3,14 @@ using CompositeConvertingArchitecture.Domain.Model;
 
 namespace CompositeConvertingArchitecture.Domain.Standards.V1
 {
-    public class Container2(Parameter2 param2, IEnumerable<Parameter3> param3s, SomeEnum someEnum) :
+    public class Container2(Parameter2 param2, IEnumerable<Parameter3> param3s, Enum1 someEnum) :
         Container(GatherEncodables(param2, param3s))
     {
+        public static Container2 CreateFrom(Code code)
+        {
+
+        }
+
         private static List<Encodable> GatherEncodables(Parameter2 param2, IEnumerable<Parameter3> param3s)
         {
             var encodables = new List<Encodable> { param2, new Repeater(true) };
@@ -19,15 +24,5 @@ namespace CompositeConvertingArchitecture.Domain.Standards.V1
 
             return encodables;
         }
-
-
-        public static ContainerDescription GetDescription() => 
-            new(
-                [
-                    typeof(Parameter2),
-                    typeof(List<Parameter3>),
-                    typeof(SomeEnum)
-                ],
-                true);
     }
 }

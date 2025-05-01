@@ -1,7 +1,6 @@
 ﻿using CompositeConvertingArchitecture.Domain.Abstractions;
 using CompositeConvertingArchitecture.Domain.Coding;
 using CompositeConvertingArchitecture.Domain.Encoding;
-using CompositeConvertingArchitecture.Domain.Standards;
 
 namespace CompositeConvertingArchitecture.Domain.Model
 {
@@ -11,19 +10,11 @@ namespace CompositeConvertingArchitecture.Domain.Model
         private readonly byte _containerId;
         private readonly Container _container;
 
-        public Message(byte standardVersion, Container container)
+        public Message(byte standardVersion, byte containerId, Container container)
         {
-            var standard = StandardSource.Standards[standardVersion];
-            var keyValuePair = standard.ContainerDescriptions.FirstOrDefault(kvp => kvp.Key == container.GetType());
-            if (keyValuePair.Equals(default(KeyValuePair<Type, ContainerDescription>)))
-                throw new InvalidOperationException();
-            
-            if (!keyValuePair.Value.IsMessagable)
-                throw new ArgumentException("Message not sendable!");
-
             _standardVersion = standardVersion;
             _container = container;
-            _containerId = keyValuePair.Value.Id;
+            _containerId = containerId;
         }
 
         public override Code Encode()

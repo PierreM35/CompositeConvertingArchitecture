@@ -4,16 +4,9 @@ using CompositeConvertingArchitecture.Domain.Model;
 
 namespace CompositeConvertingArchitecture.Domain.Standards.V1
 {
-    public class Parameter1 : Parameter<int>
+    public class Parameter1(int value) : Parameter<int>(value, GetCoder())
     {
-        public Parameter1(int value) : base(value, GetCoder())
-        {
-        }
-
-        public Parameter1(Code code) : base(code.Extract(GetCoder()), GetCoder())
-        {
-        }
-
-        public static IntCoder GetCoder() => new(4);
+        public static Parameter1 FromCode(Code code) => new(code.Extract(GetCoder()));
+        private static IntCoder GetCoder() => new(4);
     }
 }

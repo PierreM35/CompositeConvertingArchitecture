@@ -9,18 +9,19 @@ namespace CompositeConvertingArchitecture.Infrastructure
     {
         public event EventHandler<Message> MessageReceived;
 
-        public void Receive(string text) => MessageReceived?.Invoke(this, Decode(text));      //for testing
+        public void Receive(bool[] bits) => MessageReceived?.Invoke(this, Decode(bits));      //for testing
 
-        private static Message Decode(string text)
+        private static Message Decode(bool[] bits)
         {
-            var code = new Code(text);
+            var code = new Code(bits);
 
             var stdVersion = code.Extract(new StdVersionCoder());
             var standard = StandardSource.Standards[stdVersion];
-            
-            var containerId = code.Extract(new IdCoder());
 
-            return new Message(stdVersion, standard.Decode(code, containerId));
+            return new Message(
+                stdVersion, 
+                code.Extract(new IdCoder()), 
+                standard.Decode(code, code.Extract(new IdCoder())));
         }
     }
 }

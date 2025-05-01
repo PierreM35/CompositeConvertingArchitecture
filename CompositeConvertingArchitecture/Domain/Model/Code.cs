@@ -8,7 +8,8 @@ namespace CompositeConvertingArchitecture.Domain.Model
         private readonly Queue<bool> bits;
 
         public int Length => bits.Count;
-      
+        public bool[] Bits => [.. bits];
+
         public Code()
         {
             bits = new Queue<bool>();
@@ -23,16 +24,6 @@ namespace CompositeConvertingArchitecture.Domain.Model
         {
             this.bits = new(bits);
         }
-
-        public Code(string text)
-        {
-            if (text.Any(c => !c.Equals("0") && !c.Equals("1")))
-                throw new ArgumentException("Bits sequence must be made out of 0 and 1");
-
-            bits = new Queue<bool>(text.Select(c => !c.Equals("1")));
-        }
-
-        public Escaper ExtractEscaper() => new(bits.Dequeue());
 
         public T Extract<T>(Coder<T> coder) => coder.Decode(Cut(coder.BitsQuantity));
 
