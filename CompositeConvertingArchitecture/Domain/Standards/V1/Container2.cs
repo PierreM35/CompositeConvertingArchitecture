@@ -19,5 +19,15 @@ namespace CompositeConvertingArchitecture.Domain.Standards.V1
 
             return encodables;
         }
+
+
+        public static ContainerDescription GetDescription() => 
+            new(
+                [
+                    typeof(Parameter2),
+                    typeof(List<Parameter3>),
+                    typeof(SomeEnum)
+                ],
+                true);
     }
 }
