@@ -3,22 +3,20 @@ using CompositeConvertingArchitecture.Domain.Model;
 
 namespace CompositeConvertingArchitecture.Domain.Encoding
 {
-    public class IntEncoder(byte bitNumber) : Coder<int>
+    public class IntCoder(byte bitNumber) : Coder<int>(bitNumber)
     {
-        private readonly byte _bitNumber = bitNumber;
-
         public override Code Encode(int value)
         {
-            if (value > Math.Pow(2, _bitNumber) - 1)
-                throw new ArgumentException($"Value {value} not convertible into {_bitNumber} bites");
+            if (value > Math.Pow(2, BitsQuantity) - 1)
+                throw new ArgumentException($"Value {value} not convertible into {BitsQuantity} bites");
 
             throw new NotImplementedException();
         }
 
         public override int Decode(Code code)
         {
-            if (code.Length != _bitNumber)
-                throw new ArgumentException($"Awaited code must have {_bitNumber} bits. Has {code.Length}.");
+            if (code.Length < BitsQuantity)
+                throw new ArgumentException($"Awaited code must have {BitsQuantity} bits. Has {code.Length}.");
 
             throw new NotImplementedException();
         }

@@ -2,12 +2,10 @@
 
 namespace CompositeConvertingArchitecture.Domain.Abstractions
 {
-    public abstract class Parameter<T>(T value, Coder<T> encoder) : Encodable()
+    public abstract class Parameter<T>(T value, Coder<T> coder) : Encodable()
     {
-        private readonly Coder<T> _encoder = encoder;
-
         public T Value { get; } = value;
 
-        public override Code Encode() => _encoder.Encode(Value);
+        public override Code Encode() => coder.Encode(Value);
     }
 }

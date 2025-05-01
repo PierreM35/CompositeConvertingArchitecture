@@ -33,7 +33,7 @@ namespace CompositeConvertingArchitecture.Domain.Model
             var versionEncoder = new StdVersionCoder();
             code.Append(versionEncoder.Encode(_standardVersion));
 
-            var idEncoder = new IntEncoder(4);
+            var idEncoder = new IntCoder(4);
             code.Append(idEncoder.Encode(_containerId));
 
             code.Append(_container.Encode());

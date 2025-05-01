@@ -1,4 +1,5 @@
 ﻿using CompositeConvertingArchitecture.Domain.Abstractions;
+using CompositeConvertingArchitecture.Domain.Model;
 
 namespace CompositeConvertingArchitecture.Domain.Standards.V1
 {
@@ -17,25 +18,54 @@ namespace CompositeConvertingArchitecture.Domain.Standards.V1
             => new(param2, param3s, someEnum);
         public SomeEnum GenerateSomeEnum(byte index, byte bitSize) => new(index, bitSize);
 
-        private static IDictionary<Type, ContainerDescription> GetContainerDescriptions() => 
-            new Dictionary<Type, ContainerDescription>
+        public override Container Decode(Code code, byte containerId)
+        {
+            if (!ContainerDescriptions.ContainsKey(containerId))
+                throw new InvalidOperationException($"No container with Id {containerId} is registered in Standard version {Id}");
+
+            var containerArguments = new List<Encodable>();
+            var enumerator = ContainerDescriptions[containerId].ContainedTypes.GetEnumerator();
+            while (enumerator.MoveNext())
+            {
+                Type current = enumerator.Current;
+                if (current.Equals(typeof(Escaper)))
+                {
+                    var escape = code.ExtractEscaper().Escape;
+                    containerArguments.Add(new Escaper(escape));
+                    if (escape)
+                        enumerator.MoveNext();
+                }
+
+                if (current.Equals(typeof(Parameter1)))
+                    containerArguments.Add(new Parameter1(code.Extract(Parameter1.GetCoder())));
+
+
+            }
+
+            return new Container(containerArguments);
+        }
+
+        private static Dictionary<byte, ContainerDescription> GetContainerDescriptions() =>
+            new()
             {
                 {
-                    typeof(Container1),
-                    new ContainerDescription(
                     1,
+                    new ContainerDescription(
+                    typeof(Container1),
                     [
                         typeof(Parameter1),
                         typeof(Parameter2),
                         typeof(Parameter3),
-                        typeof(Container2)
+                        typeof(Escaper),
+                        typeof(Container2),
+                        typeof(SomeEnum)
                     ],
                     true)
                 },
                 {
-                    typeof(Container2),
+                    2,
                     new ContainerDescription(
-                    1,
+                    typeof(Container2),
                     [
                         typeof(Parameter2),
                         typeof(List<Parameter3>),

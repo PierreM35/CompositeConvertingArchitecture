@@ -3,10 +3,8 @@ using CompositeConvertingArchitecture.Domain.Model;
 
 namespace CompositeConvertingArchitecture.Domain.Coding
 {
-    public class StdVersionCoder : Coder<byte>
+    public class StdVersionCoder() : Coder<byte>(4)
     {
-        public static byte StandardVersionBitsNb { get; } = 4;
-        
         public override byte Decode(Code code)
         {
             throw new NotImplementedException();

@@ -3,10 +3,8 @@ using CompositeConvertingArchitecture.Domain.Model;
 
 namespace CompositeConvertingArchitecture.Domain.Encoding
 {
-    public class DblCoder(byte bitNumber) : Coder<double>
+    public class DblCoder(byte bitNumber) : Coder<double>(bitNumber)
     {
-        private readonly byte _bitNumber = bitNumber;
-
         public override double Decode(Code code)
         {
             throw new NotImplementedException();

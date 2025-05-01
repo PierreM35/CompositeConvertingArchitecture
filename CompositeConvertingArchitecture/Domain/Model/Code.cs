@@ -1,4 +1,4 @@
-﻿using CompositeConvertingArchitecture.Domain.Coding;
+﻿using CompositeConvertingArchitecture.Domain.Abstractions;
 using CompositeConvertingArchitecture.Domain.Extensions;
 
 namespace CompositeConvertingArchitecture.Domain.Model
@@ -34,20 +34,10 @@ namespace CompositeConvertingArchitecture.Domain.Model
 
         public Escaper ExtractEscaper() => new(bits.Dequeue());
 
-        public byte ExtractStandardVersion()
-        {
-            var decoder = new StdVersionCoder();
-            return decoder.Decode(Extract(StdVersionCoder.StandardVersionBitsNb));
-        }
-
-        public byte ExtractContainerId()
-        {
-            var decoder = new IdCoder();
-            return decoder.Decode(Extract(IdCoder.IdBitsNb));
-        }
+        public T Extract<T>(Coder<T> coder) => coder.Decode(Cut(coder.BitsQuantity));
 
         public void Append(Code code) => bits.Enqueue(code.bits);
 
-        private Code Extract(byte quantity) => new(bits.Dequeue(quantity));
+        private Code Cut(byte quantity) => new(bits.Dequeue(quantity));
     }
 }

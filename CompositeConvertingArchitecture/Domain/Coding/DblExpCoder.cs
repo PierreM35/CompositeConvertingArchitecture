@@ -3,16 +3,10 @@ using CompositeConvertingArchitecture.Domain.Model;
 
 namespace CompositeConvertingArchitecture.Domain.Encoding
 {
-    public class DblExpCoder : Coder<double>
+    public class DblExpCoder(byte bitNumberBase, byte bitNumberExp) : Coder<double>((byte)(bitNumberBase + bitNumberExp))
     {
-        private readonly byte bitNumberBase;
-        private readonly byte bitNumberExp;
-
-        public DblExpCoder(byte bitNumberBase, byte bitNumberExp)
-        {
-            this.bitNumberBase = bitNumberBase;
-            this.bitNumberExp = bitNumberExp;
-        }
+        private readonly byte bitNumberBase = bitNumberBase;
+        private readonly byte bitNumberExp = bitNumberExp;
 
         public override double Decode(Code code)
         {
