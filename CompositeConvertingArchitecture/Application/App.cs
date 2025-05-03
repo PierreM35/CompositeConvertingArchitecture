@@ -5,14 +5,12 @@ namespace CompositeConvertingArchitecture.Application
 {
     public class App
     {
-        public ISender Sender { get; }
-        public IReceiver Receiver { get; }
+        public IMessageService _messageService;
 
-        public App(ISender sender, IReceiver receiver)
+        public App(IMessageService messageService)
         {
-            Sender = sender;
-            Receiver = receiver;
-            receiver.MessageReceived += OnMessageReceived;
+            _messageService = messageService;
+            _messageService.MessageReceived += OnMessageReceived;
         }
 
         private void OnMessageReceived(object? sender, Message message)

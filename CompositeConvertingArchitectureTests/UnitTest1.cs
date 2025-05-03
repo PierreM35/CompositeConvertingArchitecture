@@ -1,9 +1,9 @@
 using CompositeConvertingArchitecture.Application;
+using CompositeConvertingArchitecture.Domain.Abstractions;
 using CompositeConvertingArchitecture.Domain.Model;
 using CompositeConvertingArchitecture.Domain.Model.Standards;
-using CompositeConvertingArchitecture.Domain.Utils;
-using CompositeConvertingArchitecture.Infrastructure;
-using CompositeConvertingArchitecture.Standards.V1;
+using CompositeConvertingArchitectureTests.Utils;
+using Moq;
 
 namespace CompositeConvertingArchitectureTests
 {
@@ -11,26 +11,34 @@ namespace CompositeConvertingArchitectureTests
     {
         private App _app;
         private Message _message;
+        private Mock<IMessageService> _messageService;
 
         [SetUp]
         public void Setup()
         {
-            _app = new App(new Sender(), new Receiver());
+            _messageService = new Mock<IMessageService>();
+            _messageService.SetupAdd(r => r.MessageReceived += R_MessageReceived);
+            _app = new App(_messageService.Object);
 
             var p1 = new Parameter1(8);
             var p2 = new Parameter2(56.7);
             var p3 = new Parameter3(0.57);
-            var c2 = new Container2(new Parameter2(15), [new Parameter3(1), new Parameter3(2)]);
+            var c2 = new Container2(new Parameter2(15), [new Parameter3(1), new Parameter3(2)], new Enum1(2));
 
-            var container1 = StandardSource.Standards[0].Containers.Container1.Invoke(p1, p2, p3, c2);
+            var container1 = new Container1(p1, p2, p3, new Enum1(2), c2);
 
-            _message = new Message(1, container1);
+            _message = new Message(1, 1, container1);
+        }
+
+        private void R_MessageReceived(object? sender, Message e)
+        {
+            throw new NotImplementedException();
         }
 
         [Test]
         public void SendMessage()
         {
-            _app.Sender.Send(_message);
+            _app._messageService.Send(_message);
 
             Assert.Pass();
         }
@@ -38,7 +46,8 @@ namespace CompositeConvertingArchitectureTests
         [Test]
         public void ReceiveMessage()
         {
-            (_app.Receiver as Receiver).Receive(_message.Encode());
+            _messageService.Raise(service => service.MessageReceived += R_MessageReceived);
+            //(_app.Receiver as FakeMessageService).Receive(_message.Encode());
 
             Assert.Pass();
         }
@@ -46,7 +55,7 @@ namespace CompositeConvertingArchitectureTests
         [Test]
         public void EnumeratonTest()
         {
-            var enumTest = new SomeEnum(2, 5);
+            var enumTest = new Enum1(2);
 
             var enumVal = enumTest.Value();
 

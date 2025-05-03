@@ -3,26 +3,30 @@ using CompositeConvertingArchitecture.Domain.Model;
 using CompositeConvertingArchitecture.Domain.Model.Coding;
 using CompositeConvertingArchitecture.Domain.Utils;
 
-namespace CompositeConvertingArchitecture.Infrastructure
+namespace CompositeConvertingArchitectureTests.Utils
 {
-    public class Receiver : IReceiver
+    internal class FakeMessageService : IMessageService
     {
         public event EventHandler<Message> MessageReceived;
 
-        public void Receive(bool[] bits) => MessageReceived?.Invoke(this, Decode(bits));      //for testing
+        public void Receive(Code code) => MessageReceived?.Invoke(this, Decode(code));
 
-        private static Message Decode(bool[] bits)
+        private static Message Decode(Code code)
         {
-            var code = new Code(bits);
             var stdVersion = code.Extract(new StdVersionCoder());
             var standard = StandardSource.Standards[stdVersion];
 
             var coder = new IdCoder();
-            
+
             return new Message(
-                stdVersion, 
-                code.Extract(coder), 
+                stdVersion,
+                code.Extract(coder),
                 standard.Decode(code, code.Extract(coder)));
+        }
+
+        public void Send(Message message)
+        {
+            throw new NotImplementedException();
         }
     }
 }

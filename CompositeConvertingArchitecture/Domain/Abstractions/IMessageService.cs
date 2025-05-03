@@ -1,10 +1,10 @@
-﻿
-using CompositeConvertingArchitecture.Domain.Model;
+﻿using CompositeConvertingArchitecture.Domain.Model;
 
 namespace CompositeConvertingArchitecture.Domain.Abstractions
 {
-    public interface IReceiver
+    public interface IMessageService
     {
+        void Send(Message message);
         event EventHandler<Message> MessageReceived;
     }
 }
