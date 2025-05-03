@@ -1,9 +1,8 @@
 ﻿using CompositeConvertingArchitecture.Domain.Abstractions;
-using CompositeConvertingArchitecture.Domain.Model;
 
 namespace CompositeConvertingArchitecture.Domain.Model.Coding
 {
-    public class ByteEncoder(byte bitNumber) : Coder<byte>(bitNumber)
+    public class ByteCoder(byte bitNumber) : Coder<byte>(bitNumber)
     {
         public override Code Encode(byte value)
         {

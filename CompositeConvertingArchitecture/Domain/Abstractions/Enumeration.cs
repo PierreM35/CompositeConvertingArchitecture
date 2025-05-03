@@ -24,7 +24,7 @@ namespace CompositeConvertingArchitecture.Domain.Abstractions
 
         public override Code Encode()
         {
-            var coder = new ByteEncoder(bitSize);
+            var coder = new ByteCoder(bitSize);
             return coder.Encode(index);
         }
     }
