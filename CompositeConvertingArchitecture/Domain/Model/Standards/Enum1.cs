@@ -1,8 +1,7 @@
 ﻿using CompositeConvertingArchitecture.Domain.Abstractions;
-using CompositeConvertingArchitecture.Domain.Model;
 using CompositeConvertingArchitecture.Domain.Standards.V1.Enums;
 
-namespace CompositeConvertingArchitecture.Domain.Standards.V1
+namespace CompositeConvertingArchitecture.Domain.Model.Standards
 {
     public class Enum1(byte index, byte bitSize) : Enumeration(new EnumName(), index, bitSize)
     {

@@ -2,9 +2,9 @@
 
 namespace CompositeConvertingArchitecture.Domain.Abstractions
 {
-    public abstract class Standard(int id, Dictionary<byte, Func<Code, Container>> factoryMethods)
+    public abstract class Standard(byte id, Dictionary<byte, Func<Code, Container>> factoryMethods)
     {      
-        public int Id { get; } = id;
+        public byte Id { get; } = id;
 
         public Container Decode(Code code, byte containerId)
         {

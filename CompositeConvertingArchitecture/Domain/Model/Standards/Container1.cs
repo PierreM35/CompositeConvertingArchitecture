@@ -1,8 +1,8 @@
 ﻿using CompositeConvertingArchitecture.Domain.Abstractions;
-using CompositeConvertingArchitecture.Domain.Model;
 
-namespace CompositeConvertingArchitecture.Domain.Standards.V1
+namespace CompositeConvertingArchitecture.Domain.Model.Standards
 {
+    //Container structure:
     //Parameter1
     //Parameter2
     //Parameter3
@@ -10,7 +10,7 @@ namespace CompositeConvertingArchitecture.Domain.Standards.V1
     //Container2
     //Enum1
 
-    public class Container1(Parameter1 param1, Parameter2 param2, Parameter3 param3, Enum1 enum1, Container2 container2 = null) 
+    public class Container1(Parameter1 param1, Parameter2 param2, Parameter3 param3, Enum1 enum1, Container2 container2 = null)
         : Container(GatherEncodables(param1, param2, param3, container2, enum1))
     {
         public Parameter1 Parameter1 { get; } = param1;

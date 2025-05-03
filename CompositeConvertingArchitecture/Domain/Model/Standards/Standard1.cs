@@ -1,7 +1,6 @@
 ﻿using CompositeConvertingArchitecture.Domain.Abstractions;
-using CompositeConvertingArchitecture.Domain.Model;
 
-namespace CompositeConvertingArchitecture.Domain.Standards.V1
+namespace CompositeConvertingArchitecture.Domain.Model.Standards
 {
     public class Standard1 : Standard
     {

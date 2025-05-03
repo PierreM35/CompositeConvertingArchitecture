@@ -1,8 +1,7 @@
 ﻿using CompositeConvertingArchitecture.Domain.Abstractions;
 using CompositeConvertingArchitecture.Domain.Encoding;
-using CompositeConvertingArchitecture.Domain.Model;
 
-namespace CompositeConvertingArchitecture.Domain.Standards.V1
+namespace CompositeConvertingArchitecture.Domain.Model.Standards
 {
     public class Parameter1(int value) : Parameter<int>(value, GetCoder())
     {

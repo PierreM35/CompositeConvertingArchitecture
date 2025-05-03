@@ -1,7 +1,6 @@
 ﻿using CompositeConvertingArchitecture.Domain.Abstractions;
-using CompositeConvertingArchitecture.Domain.Model;
 
-namespace CompositeConvertingArchitecture.Domain.Standards.V1
+namespace CompositeConvertingArchitecture.Domain.Model.Standards
 {
     public class Container2(Parameter2 param2, IEnumerable<Parameter3> param3s, Enum1 someEnum) :
         Container(GatherEncodables(param2, param3s))
