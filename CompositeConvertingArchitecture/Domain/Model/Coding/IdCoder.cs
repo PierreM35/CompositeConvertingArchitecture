@@ -1,7 +1,7 @@
 ﻿using CompositeConvertingArchitecture.Domain.Abstractions;
 using CompositeConvertingArchitecture.Domain.Model;
 
-namespace CompositeConvertingArchitecture.Domain.Coding
+namespace CompositeConvertingArchitecture.Domain.Model.Coding
 {
     public class IdCoder() : Coder<byte>(5)
     {

@@ -1,16 +1,16 @@
 ﻿using CompositeConvertingArchitecture.Domain.Abstractions;
 using CompositeConvertingArchitecture.Domain.Model;
 
-namespace CompositeConvertingArchitecture.Domain.Coding
+namespace CompositeConvertingArchitecture.Domain.Model.Coding
 {
-    public class StdVersionCoder() : Coder<byte>(4)
+    public class DblCoder(byte bitNumber) : Coder<double>(bitNumber)
     {
-        public override byte Decode(Code code)
+        public override double Decode(Code code)
         {
             throw new NotImplementedException();
         }
 
-        public override Code Encode(byte value)
+        public override Code Encode(double value)
         {
             throw new NotImplementedException();
         }

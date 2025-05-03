@@ -1,6 +1,6 @@
 ﻿using CompositeConvertingArchitecture.Domain.Abstractions;
-using CompositeConvertingArchitecture.Domain.Coding;
 using CompositeConvertingArchitecture.Domain.Model;
+using CompositeConvertingArchitecture.Domain.Model.Coding;
 using CompositeConvertingArchitecture.Domain.Utils;
 
 namespace CompositeConvertingArchitecture.Infrastructure

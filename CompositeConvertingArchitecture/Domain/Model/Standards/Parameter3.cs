@@ -1,5 +1,5 @@
 ﻿using CompositeConvertingArchitecture.Domain.Abstractions;
-using CompositeConvertingArchitecture.Domain.Encoding;
+using CompositeConvertingArchitecture.Domain.Model.Coding;
 
 namespace CompositeConvertingArchitecture.Domain.Model.Standards
 {

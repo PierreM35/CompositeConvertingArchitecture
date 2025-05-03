@@ -1,7 +1,7 @@
 ﻿using CompositeConvertingArchitecture.Domain.Abstractions;
 using CompositeConvertingArchitecture.Domain.Model;
 
-namespace CompositeConvertingArchitecture.Domain.Encoding
+namespace CompositeConvertingArchitecture.Domain.Model.Coding
 {
     public class IntCoder(byte bitNumber) : Coder<int>(bitNumber)
     {

@@ -5,30 +5,18 @@ namespace CompositeConvertingArchitecture.Domain.Model
 {
     public class Code
     {
-        private readonly Queue<bool> bits;
+        private readonly Queue<bool> _bits;
 
-        public int Length => bits.Count;
-        public bool[] Bits => [.. bits];
+        public int Length => _bits.Count;
+        public bool[] Bits => [.. _bits];
 
-        public Code()
-        {
-            bits = new Queue<bool>();
-        }
-
-        public Code(bool bit) : this()
-        {
-            bits.Enqueue(bit);
-        }
-
-        public Code(IEnumerable<bool> bits)
-        {
-            this.bits = new(bits);
-        }
+        public Code() => _bits = new Queue<bool>();
+        public Code(bool bit) : this() => _bits.Enqueue(bit);
+        public Code(IEnumerable<bool> bits) => _bits = new(bits);
 
         public T Extract<T>(Coder<T> coder) => coder.Decode(Cut(coder.BitsQuantity));
+        public void Append(Code code) => _bits.Enqueue(code._bits);
 
-        public void Append(Code code) => bits.Enqueue(code.bits);
-
-        private Code Cut(byte quantity) => new(bits.Dequeue(quantity));
+        private Code Cut(byte quantity) => new(_bits.Dequeue(quantity));
     }
 }
