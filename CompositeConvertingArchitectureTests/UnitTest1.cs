@@ -9,16 +9,18 @@ namespace CompositeConvertingArchitectureTests
 {
     public class Tests
     {
-        private App _app;
+        private FakeMessageService _fakeMessageService;
         private Message _message;
-        private Mock<IMessageService> _messageService;
+        private Mock<IMessageService> _messageServiceMock;
 
         [SetUp]
         public void Setup()
         {
-            _messageService = new Mock<IMessageService>();
-            _messageService.SetupAdd(r => r.MessageReceived += R_MessageReceived);
-            _app = new App(_messageService.Object);
+            //_messageServiceMock = new Mock<IMessageService>();
+            //_messageServiceMock.SetupAdd(r => r.MessageReceived += R_MessageReceived);
+            //_app = new App(_messageServiceMock.Object);
+            _fakeMessageService = new FakeMessageService();
+            var app = new App(_fakeMessageService);
 
             var p1 = new Parameter1(8);
             var p2 = new Parameter2(56.7);
@@ -30,15 +32,10 @@ namespace CompositeConvertingArchitectureTests
             _message = new Message(1, 1, container1);
         }
 
-        private void R_MessageReceived(object? sender, Message e)
-        {
-            throw new NotImplementedException();
-        }
-
         [Test]
         public void SendMessage()
         {
-            _app._messageService.Send(_message);
+            _fakeMessageService.Send(_message);
 
             Assert.Pass();
         }
@@ -46,10 +43,22 @@ namespace CompositeConvertingArchitectureTests
         [Test]
         public void ReceiveMessage()
         {
-            _messageService.Raise(service => service.MessageReceived += R_MessageReceived);
-            //(_app.Receiver as FakeMessageService).Receive(_message.Encode());
+            //_messageServiceMock.Raise(service => service.MessageReceived += R_MessageReceived);
+            var wasTriggered = false;
+            Message messageReceived = null;
+            _fakeMessageService.MessageReceived += (s, message) =>
+            {
+                wasTriggered = true;
+                messageReceived = message;
+            };
 
-            Assert.Pass();
+            _fakeMessageService.Receive(_message.Encode());
+
+            Assert.Multiple(() =>
+            {
+                Assert.That(wasTriggered);
+                Assert.That(messageReceived, Is.EqualTo(_message));
+            });
         }
 
         [Test]

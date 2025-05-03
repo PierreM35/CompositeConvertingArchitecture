@@ -5,7 +5,7 @@ namespace CompositeConvertingArchitecture.Application
 {
     public class App
     {
-        public IMessageService _messageService;
+        private IMessageService _messageService;
 
         public App(IMessageService messageService)
         {
