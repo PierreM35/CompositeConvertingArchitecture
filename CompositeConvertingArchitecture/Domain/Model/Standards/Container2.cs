@@ -14,7 +14,7 @@ namespace CompositeConvertingArchitecture.Domain.Model.Standards
         public IEnumerable<Parameter3> Parameter3s { get; } = param3s;
         public Enum1 Enum1 { get; } = enum1;
 
-        public static Container2 CreateFrom(Code code)
+        public static Container2 FromCode(Code code)
         {
             var param2 = Parameter2.FromCode(code);
             var param3s = new List<Parameter3>();

@@ -3,18 +3,11 @@ using CompositeConvertingArchitecture.Domain.Model.Coding;
 
 namespace CompositeConvertingArchitecture.Domain.Model
 {
-    public class Message : Encodable
+    public class Message(byte standardVersion, byte containerId, Container container) : Encodable
     {
-        public byte StandardVersion { get; }
-        public byte ContainerId { get; }
-        public Container Container { get; }
-
-        public Message(byte standardVersion, byte containerId, Container container)
-        {
-            StandardVersion = standardVersion;
-            Container = container;
-            ContainerId = containerId;
-        }
+        public byte StandardVersion { get; } = standardVersion;
+        public byte ContainerId { get; } = containerId;
+        public Container Container { get; } = container;
 
         public override Code Encode()
         {

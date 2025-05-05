@@ -11,8 +11,8 @@ namespace CompositeConvertingArchitecture.Domain.Model.Standards
         private static Dictionary<byte, Func<Code, Container>> GetFactoryMethods()
             => new()
             {
-                { 1, Container1.CreateFrom },
-                { 2, Container2.CreateFrom }
+                { 1, Container1.FromCode },
+                { 2, Container2.FromCode }
             };
     }
 }
