@@ -17,11 +17,12 @@ namespace CompositeConvertingArchitectureTests.Utils
             var standard = StandardSource.Standards[stdVersion];
 
             var coder = new IdCoder();
+            var containerId = code.Extract(coder);
 
             return new Message(
                 stdVersion,
-                code.Extract(coder),
-                standard.Decode(code, code.Extract(coder)));
+                containerId,
+                standard.Decode(code, containerId));
         }
 
         public void Send(Message message)
