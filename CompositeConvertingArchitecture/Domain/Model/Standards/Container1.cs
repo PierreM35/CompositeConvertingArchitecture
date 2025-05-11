@@ -37,6 +37,8 @@ namespace CompositeConvertingArchitecture.Domain.Model.Standards
             Parameter3 param3,
             Container2? container2,
             Enum1 enum1)
-            => [param1, param2, param3, new Escaper(container2 == null), container2, enum1];
+            => container2 == null ?
+            [param1, param2, param3, new Escaper(true), enum1] :
+            [param1, param2, param3, new Escaper(false), container2, enum1];
     }
 }
