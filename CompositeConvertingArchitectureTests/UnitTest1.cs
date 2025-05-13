@@ -56,7 +56,7 @@ namespace CompositeConvertingArchitectureTests
             Assert.Multiple(() =>
             {
                 Assert.That(wasTriggered);
-                Assert.That(messageReceived, Is.EqualTo(_message));
+                Assert.That(messageReceived, Is.EqualTo(_message));     //value comparaison to be implemented
             });
         }
 
