@@ -3,10 +3,10 @@ using CompositeConvertingArchitecture.Domain.Model.Coding;
 
 namespace CompositeConvertingArchitecture.Domain.Model.Standards
 {
-    public class Parameter2(double value) : Parameter<double>(value, GetCoder())
+    public class Parameter2(double value) : Parameter<double>(value, Coder)
     {
-        public static Parameter2 FromCode(Code code) => new(code.Extract(GetCoder()));
+        public static Parameter2 FromCode(Code code) => new(code.Extract(Coder));
 
-        private static DblCoder GetCoder() => new(6);
+        private static DblCoder Coder => new(6);
     }
 }
