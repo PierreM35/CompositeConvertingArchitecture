@@ -5,21 +5,17 @@ namespace CompositeConvertingArchitecture.Domain.Model
 {
     public class Message(byte standardVersion, byte containerId, Container container) : Encodable
     {
-        public byte StandardVersion { get; } = standardVersion;
-        public byte ContainerId { get; } = containerId;
-        public Container Container { get; } = container;
-
         public override Code Encode()
         {
             var code = new Code();
 
             var versionEncoder = new StdVersionCoder();
-            code.Append(versionEncoder.Encode(StandardVersion));
+            code.Append(versionEncoder.Encode(standardVersion));
 
             var idEncoder = new IntCoder(4);
-            code.Append(idEncoder.Encode(ContainerId));
+            code.Append(idEncoder.Encode(containerId));
 
-            code.Append(Container.Encode());
+            code.Append(container.Encode());
 
             return code;
         }
