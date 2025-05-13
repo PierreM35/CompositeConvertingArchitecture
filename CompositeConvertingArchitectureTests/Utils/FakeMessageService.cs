@@ -27,7 +27,9 @@ namespace CompositeConvertingArchitectureTests.Utils
 
         public void Send(Message message)
         {
-            throw new NotImplementedException();
+            var code = message.Encode();
+
+            throw new NotImplementedException();        //send code using some process
         }
     }
 }
