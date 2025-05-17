@@ -6,6 +6,7 @@ namespace CompositeConvertingArchitecture.Domain.Model
     public class Repeater(bool repeat) : Encodable
     {
         public bool Repeat { get; } = repeat;
+        public bool Stop => !Repeat;
 
         public override Code Encode() => new(Repeat);
 
