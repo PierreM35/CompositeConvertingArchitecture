@@ -8,7 +8,6 @@ namespace CompositeConvertingArchitecture.Infrastructure
         public event EventHandler<Message> MessageReceived;
         public void Send(Message message)
         {
-            var code = message.Encode();
 
             throw new NotImplementedException();
         }

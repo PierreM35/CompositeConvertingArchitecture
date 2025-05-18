@@ -1,5 +1,4 @@
-﻿
-namespace CompositeConvertingArchitecture.Domain.Extensions
+﻿namespace CompositeConvertingArchitecture.Infrastructure.Coding.Extensions
 {
     public static class QueueExtensions
     {

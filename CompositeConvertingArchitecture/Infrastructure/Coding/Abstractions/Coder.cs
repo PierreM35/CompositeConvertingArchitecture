@@ -1,7 +1,6 @@
-﻿
-using CompositeConvertingArchitecture.Domain.Model;
+﻿using CompositeConvertingArchitecture.Infrastructure.Coding.Model;
 
-namespace CompositeConvertingArchitecture.Domain.Abstractions
+namespace CompositeConvertingArchitecture.Infrastructure.Coding.Abstractions
 {
     public abstract class Coder<T>(byte bitsQuantity)
     {
