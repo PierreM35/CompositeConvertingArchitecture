@@ -23,30 +23,32 @@ namespace CompositeConvertingArchitecture.Infrastructure.Coding.Model
         public byte ExtractStandardVersion() => Extract(new StdVersionCoder());
         public byte ExtractContainerId() => Extract(new IdCoder());
 
-        public Container Extract(Type containerType)
+        public Container ExtractContainer(Type containerType)
         {
             if (containerType == typeof(Container1))
-                return GetContainer1();
+                return ExtractContainer1();
 
             if (containerType == typeof(Container2))
-                return GetContainer2();
+                return ExtractContainer2();
 
             throw new NotImplementedException($"{containerType} not implemented yet.");
         }
 
-        private Container1 GetContainer1()
+        #region Private helpers
+
+        private Container1 ExtractContainer1()
         {
             var param1 = ExtractParameter1();
             var param2 = ExtractParameter2();
             var param3 = ExtractParameter3();
             var escaper = ExtractEscaper();
-            var container2 = escaper.Keep ? GetContainer2() : null;
+            var container2 = escaper.Keep ? ExtractContainer2() : null;
             var enum1 = ExtractEnum1();
 
             return new Container1(param1, param2, param3, enum1, container2);
         }
 
-        private Container2 GetContainer2()
+        private Container2 ExtractContainer2()
         {
             var param2 = ExtractParameter2();
             var param3s = new List<Parameter3>();
@@ -72,5 +74,7 @@ namespace CompositeConvertingArchitecture.Infrastructure.Coding.Model
         private Repeater ExtractRepeater() => new(Extract(new BoolCoder()));
         private T Extract<T>(Coder<T> coder) => coder.Decode(Cut(coder.BitsQuantity));
         private Code Cut(byte quantity) => new(_bits.Dequeue(quantity));
+
+        #endregion
     }
 }

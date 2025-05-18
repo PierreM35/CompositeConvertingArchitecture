@@ -36,7 +36,7 @@ namespace CompositeConvertingArchitecture.Infrastructure.Coding
             return new Message(
                 stdVersion,
                 containerId,
-                code.Extract(containerType));
+                code.ExtractContainer(containerType));
         }
     }
 }

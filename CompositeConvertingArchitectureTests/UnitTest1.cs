@@ -73,7 +73,7 @@ namespace CompositeConvertingArchitectureTests
                 Enum1.d);
 
             var code = container1.Encode();
-            code.Extract(typeof(Container1));
+            code.ExtractContainer(typeof(Container1));
 
             Assert.Pass();
         }
