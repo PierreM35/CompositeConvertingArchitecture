@@ -21,6 +21,7 @@ namespace CompositeConvertingArchitecture.Infrastructure.Coding.Model
         public void Append(Code code) => _bits.Enqueue(code._bits);
 
         public byte ExtractStandardVersion() => Extract(new StdVersionCoder());
+
         public byte ExtractContainerId() => Extract(new IdCoder());
 
         public Container ExtractContainer(Type containerType)
