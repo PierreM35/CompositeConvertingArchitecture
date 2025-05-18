@@ -1,10 +1,11 @@
-﻿using CompositeConvertingArchitecture.Domain.Abstractions;
+﻿using CompositeConvertingArchitecture.Infrastructure.Coding.Abstractions;
+using CompositeConvertingArchitecture.Infrastructure.Coding.Model;
 
-namespace CompositeConvertingArchitecture.Domain.Model.Coding
+namespace CompositeConvertingArchitecture.Infrastructure.Coding.Coders
 {
-    public class IntCoder(byte bitNumber) : Coder<int>(bitNumber)
+    public class ByteCoder(byte bitNumber) : Coder<byte>(bitNumber)
     {
-        public override Code Encode(int value)
+        public override Code Encode(byte value)
         {
             if (value > Math.Pow(2, BitsQuantity) - 1)
                 throw new ArgumentException($"Value {value} not convertible into {BitsQuantity} bites");
@@ -12,9 +13,9 @@ namespace CompositeConvertingArchitecture.Domain.Model.Coding
             throw new NotImplementedException();
         }
 
-        public override int Decode(Code code)
+        public override byte Decode(Code code)
         {
-            if (code.Length < BitsQuantity)
+            if (code.Length != BitsQuantity)
                 throw new ArgumentException($"Awaited code must have {BitsQuantity} bits. Has {code.Length}.");
 
             throw new NotImplementedException();

@@ -1,9 +1,11 @@
 using CompositeConvertingArchitecture.Application;
 using CompositeConvertingArchitecture.Domain.Abstractions;
+using CompositeConvertingArchitecture.Domain.Enums;
 using CompositeConvertingArchitecture.Domain.Model;
-using CompositeConvertingArchitecture.Domain.Model.Standards;
+using CompositeConvertingArchitecture.Infrastructure.Coding;
 using CompositeConvertingArchitectureTests.Utils;
 using Moq;
+using CompositeConvertingArchitecture.Infrastructure.Coding.Extensions;
 
 namespace CompositeConvertingArchitectureTests
 {
@@ -25,8 +27,8 @@ namespace CompositeConvertingArchitectureTests
             var p1 = new Parameter1(8);
             var p2 = new Parameter2(56.7);
             var p3 = new Parameter3(0.57);
-            var c2 = new Container2(new Parameter2(15), [new Parameter3(1), new Parameter3(2)], new Enum1(2));
-            var c1 = new Container1(p1, p2, p3, new Enum1(2), c2);
+            var c2 = new Container2(new Parameter2(15), [new Parameter3(1), new Parameter3(2)], Enum1.b);
+            var c1 = new Container1(p1, p2, p3, Enum1.b, c2);
 
             _message = new Message(1, 1, c1);
         }
@@ -51,7 +53,8 @@ namespace CompositeConvertingArchitectureTests
                 messageReceived = message;
             };
 
-            _messageService.Receive(_message.Encode());
+            var codingService = new CodingService();
+            _messageService.Receive(codingService.Encode(_message));
 
             Assert.Multiple(() =>
             {
@@ -61,11 +64,16 @@ namespace CompositeConvertingArchitectureTests
         }
 
         [Test]
-        public void EnumeratonTest()
+        public void ContainerTest()
         {
-            var enumTest = new Enum1(2);
+            var container1 = new Container1(
+                new Parameter1(4),
+                new Parameter2(6.4),
+                new Parameter3(2.5),
+                Enum1.d);
 
-            var enumVal = enumTest.Value();
+            var code = container1.Encode();
+            code.ExtractContainer(typeof(Container1));
 
             Assert.Pass();
         }

@@ -1,7 +1,7 @@
 ﻿using CompositeConvertingArchitecture.Domain.Abstractions;
 using CompositeConvertingArchitecture.Domain.Model;
-using CompositeConvertingArchitecture.Domain.Model.Coding;
-using CompositeConvertingArchitecture.Domain.Utils;
+using CompositeConvertingArchitecture.Infrastructure.Coding;
+using CompositeConvertingArchitecture.Infrastructure.Coding.Model;
 
 namespace CompositeConvertingArchitectureTests.Utils
 {
@@ -13,21 +13,14 @@ namespace CompositeConvertingArchitectureTests.Utils
 
         private static Message Decode(Code code)
         {
-            var stdVersion = code.Extract(new StdVersionCoder());
-            var standard = StandardSource.Standards[stdVersion];
-
-            var coder = new IdCoder();
-            var containerId = code.Extract(coder);
-
-            return new Message(
-                stdVersion,
-                containerId,
-                standard.Decode(code, containerId));
+            var codingService = new CodingService();
+            return codingService.Decode(code);
         }
 
         public void Send(Message message)
         {
-            var code = message.Encode();
+            var codingService = new CodingService();
+            var code = codingService.Encode(message);
 
             throw new NotImplementedException();        //send code using some process
         }

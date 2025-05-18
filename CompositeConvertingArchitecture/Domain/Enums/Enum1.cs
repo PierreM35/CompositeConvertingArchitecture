@@ -1,6 +1,6 @@
 ﻿namespace CompositeConvertingArchitecture.Domain.Enums
 {
-    public enum ForEnum1
+    public enum Enum1
     {
         a, b, c, d
     }

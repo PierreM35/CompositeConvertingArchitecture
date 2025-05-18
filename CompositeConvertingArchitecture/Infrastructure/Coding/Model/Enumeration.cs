@@ -1,10 +1,12 @@
-﻿using CompositeConvertingArchitecture.Domain.Model;
-using CompositeConvertingArchitecture.Domain.Model.Coding;
+﻿using CompositeConvertingArchitecture.Infrastructure.Coding.Coders;
 
-namespace CompositeConvertingArchitecture.Domain.Abstractions
+namespace CompositeConvertingArchitecture.Infrastructure.Coding.Model
 {
-    public abstract class Enumeration(Enum enumeration, byte index, byte bitSize) : Encodable
+    public class Enumeration(Enum enumeration, byte index, byte bitSize)
     {
+        public byte Index => index;
+        public byte BitSize => bitSize;
+
         public object Value()
         {
             var enumValues = Enum.GetValues(enumeration.GetType());
@@ -22,7 +24,7 @@ namespace CompositeConvertingArchitecture.Domain.Abstractions
             throw new InvalidOperationException("Index invalid");
         }
 
-        public override Code Encode()
+        public  Code Encode()
         {
             var coder = new ByteCoder(bitSize);
             return coder.Encode(index);
