@@ -1,5 +1,4 @@
 ﻿using ModelDigitalisationArchitecture.Domain.Abstractions;
-using ModelDigitalisationArchitecture.Domain.Enums;
 
 namespace ModelDigitalisationArchitecture.Domain.Model
 {
