@@ -1,7 +1,7 @@
 ﻿using ModelDigitalisationArchitecture.Domain.Enums;
-using ModelDigitalisationArchitecture.Infrastructure.Coding.Model;
+using ModelDigitalisationArchitecture.Infrastructure.Digitalisation.Model;
 
-namespace ModelDigitalisationArchitecture.Infrastructure.Coding.Extensions
+namespace ModelDigitalisationArchitecture.Infrastructure.Digitalisation.Extensions
 {
     public static class EnumExtensions
     {

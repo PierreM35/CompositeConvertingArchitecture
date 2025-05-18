@@ -1,7 +1,7 @@
-﻿using ModelDigitalisationArchitecture.Infrastructure.Coding.Abstractions;
-using ModelDigitalisationArchitecture.Infrastructure.Coding.Model;
+﻿using ModelDigitalisationArchitecture.Infrastructure.Digitalisation.Abstractions;
+using ModelDigitalisationArchitecture.Infrastructure.Digitalisation.Model;
 
-namespace ModelDigitalisationArchitecture.Infrastructure.Coding.Coders
+namespace ModelDigitalisationArchitecture.Infrastructure.Digitalisation.Coders
 {
     public class StdVersionCoder() : Coder<byte>(4)
     {

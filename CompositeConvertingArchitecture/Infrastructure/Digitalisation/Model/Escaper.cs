@@ -1,5 +1,5 @@
 ﻿
-namespace ModelDigitalisationArchitecture.Infrastructure.Coding.Model
+namespace ModelDigitalisationArchitecture.Infrastructure.Digitalisation.Model
 {
     public class Escaper(bool escape)
     {

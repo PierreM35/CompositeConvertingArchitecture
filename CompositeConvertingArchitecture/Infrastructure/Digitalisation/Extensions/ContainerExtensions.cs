@@ -1,8 +1,8 @@
 ﻿using ModelDigitalisationArchitecture.Domain.Abstractions;
 using ModelDigitalisationArchitecture.Domain.Model;
-using ModelDigitalisationArchitecture.Infrastructure.Coding.Model;
+using ModelDigitalisationArchitecture.Infrastructure.Digitalisation.Model;
 
-namespace ModelDigitalisationArchitecture.Infrastructure.Coding.Extensions
+namespace ModelDigitalisationArchitecture.Infrastructure.Digitalisation.Extensions
 {
     public static class ContainerExtensions
     {

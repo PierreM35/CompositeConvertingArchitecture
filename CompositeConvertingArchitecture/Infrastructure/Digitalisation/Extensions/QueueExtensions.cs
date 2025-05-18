@@ -1,4 +1,4 @@
-﻿namespace ModelDigitalisationArchitecture.Infrastructure.Coding.Extensions
+﻿namespace ModelDigitalisationArchitecture.Infrastructure.Digitalisation.Extensions
 {
     public static class QueueExtensions
     {

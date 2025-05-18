@@ -1,5 +1,5 @@
 ﻿using ModelDigitalisationArchitecture.Domain.Model;
-using ModelDigitalisationArchitecture.Infrastructure.Coding.Model;
+using ModelDigitalisationArchitecture.Infrastructure.Digitalisation.Model;
 
 namespace ModelDigitalisationArchitecture.Domain.Abstractions
 {

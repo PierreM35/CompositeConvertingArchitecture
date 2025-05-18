@@ -1,6 +1,6 @@
-﻿using ModelDigitalisationArchitecture.Infrastructure.Coding.Coders;
+﻿using ModelDigitalisationArchitecture.Infrastructure.Digitalisation.Coders;
 
-namespace ModelDigitalisationArchitecture.Infrastructure.Coding.Model
+namespace ModelDigitalisationArchitecture.Infrastructure.Digitalisation.Model
 {
     public class Enumeration(Enum enumeration, byte index, byte bitSize)
     {

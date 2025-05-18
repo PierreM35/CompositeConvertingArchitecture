@@ -1,11 +1,11 @@
 ﻿using ModelDigitalisationArchitecture.Domain.Abstractions;
 using ModelDigitalisationArchitecture.Domain.Model;
 using ModelDigitalisationArchitecture.Domain.Utils;
-using ModelDigitalisationArchitecture.Infrastructure.Coding.Coders;
-using ModelDigitalisationArchitecture.Infrastructure.Coding.Extensions;
-using ModelDigitalisationArchitecture.Infrastructure.Coding.Model;
+using ModelDigitalisationArchitecture.Infrastructure.Digitalisation.Coders;
+using ModelDigitalisationArchitecture.Infrastructure.Digitalisation.Extensions;
+using ModelDigitalisationArchitecture.Infrastructure.Digitalisation.Model;
 
-namespace ModelDigitalisationArchitecture.Infrastructure.Coding
+namespace ModelDigitalisationArchitecture.Infrastructure.Digitalisation
 {
     public class CodingService() : ICodingService
     {

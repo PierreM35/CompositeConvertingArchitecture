@@ -5,7 +5,7 @@ using ModelDigitalisationArchitecture.Domain.Model;
 using ModelDigitalisationArchitecture.Infrastructure.Coding;
 using CompositeConvertingArchitectureTests.Utils;
 using Moq;
-using ModelDigitalisationArchitecture.Infrastructure.Coding.Extensions;
+using ModelDigitalisationArchitecture.Infrastructure.Digitalisation.Extensions;
 
 namespace CompositeConvertingArchitectureTests
 {

@@ -1,6 +1,6 @@
-﻿using ModelDigitalisationArchitecture.Infrastructure.Coding.Model;
+﻿using ModelDigitalisationArchitecture.Infrastructure.Digitalisation.Model;
 
-namespace ModelDigitalisationArchitecture.Infrastructure.Coding.Abstractions
+namespace ModelDigitalisationArchitecture.Infrastructure.Digitalisation.Abstractions
 {
     public abstract class Coder<T>(byte bitsQuantity)
     {

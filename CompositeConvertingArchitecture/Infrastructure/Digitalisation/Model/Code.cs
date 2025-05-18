@@ -1,11 +1,11 @@
 ﻿using ModelDigitalisationArchitecture.Domain.Abstractions;
 using ModelDigitalisationArchitecture.Domain.Enums;
 using ModelDigitalisationArchitecture.Domain.Model;
-using ModelDigitalisationArchitecture.Infrastructure.Coding.Abstractions;
-using ModelDigitalisationArchitecture.Infrastructure.Coding.Coders;
-using ModelDigitalisationArchitecture.Infrastructure.Coding.Extensions;
+using ModelDigitalisationArchitecture.Infrastructure.Digitalisation.Abstractions;
+using ModelDigitalisationArchitecture.Infrastructure.Digitalisation.Coders;
+using ModelDigitalisationArchitecture.Infrastructure.Digitalisation.Extensions;
 
-namespace ModelDigitalisationArchitecture.Infrastructure.Coding.Model
+namespace ModelDigitalisationArchitecture.Infrastructure.Digitalisation.Model
 {
     public class Code
     {
