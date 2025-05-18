@@ -1,6 +1,6 @@
-﻿using CompositeConvertingArchitecture.Domain.Abstractions;
+﻿using ModelDigitalisationArchitecture.Domain.Abstractions;
 
-namespace CompositeConvertingArchitecture.Domain.Model
+namespace ModelDigitalisationArchitecture.Domain.Model
 {
     public class Message(byte standardVersion, byte containerId, Container container)
     {

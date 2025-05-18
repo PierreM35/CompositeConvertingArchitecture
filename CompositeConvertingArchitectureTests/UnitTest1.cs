@@ -1,11 +1,11 @@
-using CompositeConvertingArchitecture.Application;
-using CompositeConvertingArchitecture.Domain.Abstractions;
-using CompositeConvertingArchitecture.Domain.Enums;
-using CompositeConvertingArchitecture.Domain.Model;
-using CompositeConvertingArchitecture.Infrastructure.Coding;
+using ModelDigitalisationArchitecture.Application;
+using ModelDigitalisationArchitecture.Domain.Abstractions;
+using ModelDigitalisationArchitecture.Domain.Enums;
+using ModelDigitalisationArchitecture.Domain.Model;
+using ModelDigitalisationArchitecture.Infrastructure.Coding;
 using CompositeConvertingArchitectureTests.Utils;
 using Moq;
-using CompositeConvertingArchitecture.Infrastructure.Coding.Extensions;
+using ModelDigitalisationArchitecture.Infrastructure.Coding.Extensions;
 
 namespace CompositeConvertingArchitectureTests
 {

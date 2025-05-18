@@ -1,9 +1,9 @@
-﻿using CompositeConvertingArchitecture.Domain.Model;
-using CompositeConvertingArchitecture.Infrastructure.Coding.Abstractions;
-using CompositeConvertingArchitecture.Infrastructure.Coding.Coders;
-using CompositeConvertingArchitecture.Infrastructure.Coding.Model;
+﻿using ModelDigitalisationArchitecture.Domain.Model;
+using ModelDigitalisationArchitecture.Infrastructure.Coding.Abstractions;
+using ModelDigitalisationArchitecture.Infrastructure.Coding.Coders;
+using ModelDigitalisationArchitecture.Infrastructure.Coding.Model;
 
-namespace CompositeConvertingArchitecture.Infrastructure.Coding.Extensions
+namespace ModelDigitalisationArchitecture.Infrastructure.Coding.Extensions
 {
     internal static class ParameterExtensions
     {

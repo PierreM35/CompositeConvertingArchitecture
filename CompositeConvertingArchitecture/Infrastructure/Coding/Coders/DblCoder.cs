@@ -1,7 +1,7 @@
-﻿using CompositeConvertingArchitecture.Infrastructure.Coding.Abstractions;
-using CompositeConvertingArchitecture.Infrastructure.Coding.Model;
+﻿using ModelDigitalisationArchitecture.Infrastructure.Coding.Abstractions;
+using ModelDigitalisationArchitecture.Infrastructure.Coding.Model;
 
-namespace CompositeConvertingArchitecture.Infrastructure.Coding.Coders
+namespace ModelDigitalisationArchitecture.Infrastructure.Coding.Coders
 {
     public class DblCoder(byte bitNumber) : Coder<double>(bitNumber)
     {

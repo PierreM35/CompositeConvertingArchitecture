@@ -1,7 +1,7 @@
-﻿using CompositeConvertingArchitecture.Domain.Enums;
-using CompositeConvertingArchitecture.Infrastructure.Coding.Model;
+﻿using ModelDigitalisationArchitecture.Domain.Enums;
+using ModelDigitalisationArchitecture.Infrastructure.Coding.Model;
 
-namespace CompositeConvertingArchitecture.Infrastructure.Coding.Extensions
+namespace ModelDigitalisationArchitecture.Infrastructure.Coding.Extensions
 {
     public static class EnumExtensions
     {

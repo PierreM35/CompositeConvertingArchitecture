@@ -1,11 +1,11 @@
-﻿using CompositeConvertingArchitecture.Domain.Abstractions;
-using CompositeConvertingArchitecture.Domain.Model;
-using CompositeConvertingArchitecture.Domain.Utils;
-using CompositeConvertingArchitecture.Infrastructure.Coding.Coders;
-using CompositeConvertingArchitecture.Infrastructure.Coding.Extensions;
-using CompositeConvertingArchitecture.Infrastructure.Coding.Model;
+﻿using ModelDigitalisationArchitecture.Domain.Abstractions;
+using ModelDigitalisationArchitecture.Domain.Model;
+using ModelDigitalisationArchitecture.Domain.Utils;
+using ModelDigitalisationArchitecture.Infrastructure.Coding.Coders;
+using ModelDigitalisationArchitecture.Infrastructure.Coding.Extensions;
+using ModelDigitalisationArchitecture.Infrastructure.Coding.Model;
 
-namespace CompositeConvertingArchitecture.Infrastructure.Coding
+namespace ModelDigitalisationArchitecture.Infrastructure.Coding
 {
     public class CodingService() : ICodingService
     {

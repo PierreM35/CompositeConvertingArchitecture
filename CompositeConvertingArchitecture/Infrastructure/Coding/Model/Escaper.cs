@@ -1,5 +1,5 @@
 ﻿
-namespace CompositeConvertingArchitecture.Infrastructure.Coding.Model
+namespace ModelDigitalisationArchitecture.Infrastructure.Coding.Model
 {
     public class Escaper(bool escape)
     {

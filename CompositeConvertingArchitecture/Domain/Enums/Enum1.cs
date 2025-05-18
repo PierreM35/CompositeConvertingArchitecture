@@ -1,4 +1,4 @@
-﻿namespace CompositeConvertingArchitecture.Domain.Enums
+﻿namespace ModelDigitalisationArchitecture.Domain.Enums
 {
     public enum Enum1
     {

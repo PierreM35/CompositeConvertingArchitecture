@@ -1,6 +1,6 @@
-﻿using CompositeConvertingArchitecture.Infrastructure.Coding.Coders;
+﻿using ModelDigitalisationArchitecture.Infrastructure.Coding.Coders;
 
-namespace CompositeConvertingArchitecture.Infrastructure.Coding.Model
+namespace ModelDigitalisationArchitecture.Infrastructure.Coding.Model
 {
     public class Enumeration(Enum enumeration, byte index, byte bitSize)
     {

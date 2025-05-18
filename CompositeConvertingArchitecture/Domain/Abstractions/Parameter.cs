@@ -1,4 +1,4 @@
-﻿namespace CompositeConvertingArchitecture.Domain.Abstractions
+﻿namespace ModelDigitalisationArchitecture.Domain.Abstractions
 {
     public abstract class Parameter<T>(T value)
     {

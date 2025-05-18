@@ -1,6 +1,6 @@
-﻿using CompositeConvertingArchitecture.Domain.Abstractions;
+﻿using ModelDigitalisationArchitecture.Domain.Abstractions;
 
-namespace CompositeConvertingArchitecture.Domain.Model
+namespace ModelDigitalisationArchitecture.Domain.Model
 {
     public class Container1(Parameter1 param1, Parameter2 param2, Parameter3 param3, Enums.Enum1 enum1, Container2? container2 = null)
         : Container

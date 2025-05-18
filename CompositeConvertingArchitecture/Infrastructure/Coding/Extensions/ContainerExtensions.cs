@@ -1,8 +1,8 @@
-﻿using CompositeConvertingArchitecture.Domain.Abstractions;
-using CompositeConvertingArchitecture.Domain.Model;
-using CompositeConvertingArchitecture.Infrastructure.Coding.Model;
+﻿using ModelDigitalisationArchitecture.Domain.Abstractions;
+using ModelDigitalisationArchitecture.Domain.Model;
+using ModelDigitalisationArchitecture.Infrastructure.Coding.Model;
 
-namespace CompositeConvertingArchitecture.Infrastructure.Coding.Extensions
+namespace ModelDigitalisationArchitecture.Infrastructure.Coding.Extensions
 {
     public static class ContainerExtensions
     {

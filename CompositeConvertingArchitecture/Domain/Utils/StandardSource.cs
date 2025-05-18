@@ -1,7 +1,7 @@
-﻿using CompositeConvertingArchitecture.Domain.Abstractions;
-using CompositeConvertingArchitecture.Domain.Model;
+﻿using ModelDigitalisationArchitecture.Domain.Abstractions;
+using ModelDigitalisationArchitecture.Domain.Model;
 
-namespace CompositeConvertingArchitecture.Domain.Utils
+namespace ModelDigitalisationArchitecture.Domain.Utils
 {
     public static class StandardSource
     {

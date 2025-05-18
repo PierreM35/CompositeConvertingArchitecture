@@ -1,11 +1,11 @@
-﻿using CompositeConvertingArchitecture.Domain.Abstractions;
-using CompositeConvertingArchitecture.Domain.Enums;
-using CompositeConvertingArchitecture.Domain.Model;
-using CompositeConvertingArchitecture.Infrastructure.Coding.Abstractions;
-using CompositeConvertingArchitecture.Infrastructure.Coding.Coders;
-using CompositeConvertingArchitecture.Infrastructure.Coding.Extensions;
+﻿using ModelDigitalisationArchitecture.Domain.Abstractions;
+using ModelDigitalisationArchitecture.Domain.Enums;
+using ModelDigitalisationArchitecture.Domain.Model;
+using ModelDigitalisationArchitecture.Infrastructure.Coding.Abstractions;
+using ModelDigitalisationArchitecture.Infrastructure.Coding.Coders;
+using ModelDigitalisationArchitecture.Infrastructure.Coding.Extensions;
 
-namespace CompositeConvertingArchitecture.Infrastructure.Coding.Model
+namespace ModelDigitalisationArchitecture.Infrastructure.Coding.Model
 {
     public class Code
     {

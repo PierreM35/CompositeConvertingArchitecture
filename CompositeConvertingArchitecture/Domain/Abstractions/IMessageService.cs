@@ -1,6 +1,6 @@
-﻿using CompositeConvertingArchitecture.Domain.Model;
+﻿using ModelDigitalisationArchitecture.Domain.Model;
 
-namespace CompositeConvertingArchitecture.Domain.Abstractions
+namespace ModelDigitalisationArchitecture.Domain.Abstractions
 {
     public interface IMessageService
     {

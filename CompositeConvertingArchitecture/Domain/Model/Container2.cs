@@ -1,7 +1,7 @@
-﻿using CompositeConvertingArchitecture.Domain.Abstractions;
-using CompositeConvertingArchitecture.Domain.Enums;
+﻿using ModelDigitalisationArchitecture.Domain.Abstractions;
+using ModelDigitalisationArchitecture.Domain.Enums;
 
-namespace CompositeConvertingArchitecture.Domain.Model
+namespace ModelDigitalisationArchitecture.Domain.Model
 {
     public class Container2(Parameter2 param2, IEnumerable<Parameter3> param3s, Enums.Enum1 enum1) : Container
     {

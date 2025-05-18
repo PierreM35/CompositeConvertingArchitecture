@@ -1,7 +1,7 @@
-﻿using CompositeConvertingArchitecture.Domain.Model;
-using CompositeConvertingArchitecture.Infrastructure.Coding.Model;
+﻿using ModelDigitalisationArchitecture.Domain.Model;
+using ModelDigitalisationArchitecture.Infrastructure.Coding.Model;
 
-namespace CompositeConvertingArchitecture.Domain.Abstractions
+namespace ModelDigitalisationArchitecture.Domain.Abstractions
 {
     internal interface ICodingService
     {

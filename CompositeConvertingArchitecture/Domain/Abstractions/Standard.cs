@@ -1,4 +1,4 @@
-﻿namespace CompositeConvertingArchitecture.Domain.Abstractions
+﻿namespace ModelDigitalisationArchitecture.Domain.Abstractions
 {
     public abstract class Standard(byte id, Dictionary<byte, Type> containerTypes)
     {      
