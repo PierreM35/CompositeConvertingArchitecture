@@ -75,7 +75,7 @@ namespace CompositeConvertingArchitectureTests
             var factory = new Factory(code);
             var container = factory.ExtractContainer(typeof(Container1));
 
-            Assert.Pass();
+            Assert.IsTrue(container1 == container);     //value comparaison to implement
         }
     }
 }
