@@ -6,11 +6,11 @@ using ModelDigitalisationArchitecture.Infrastructure.Digitalisation.Coders;
 
 namespace ModelDigitalisationArchitecture.Infrastructure.Digitalisation.Model
 {
-    internal class Factory(Code code)
+    internal class Factory(Binary binary)
     {
         public Message ExtractMessage()
         {
-            var factory = new Factory(code);
+            var factory = new Factory(binary);
             var stdVersion = factory.ExtractStandardVersion();
             var standard = StandardSource.Standards.FirstOrDefault(s => s.Id == stdVersion)
                 ?? throw new Exception($"Standard version {stdVersion} doesn't exist.");
@@ -24,9 +24,9 @@ namespace ModelDigitalisationArchitecture.Infrastructure.Digitalisation.Model
                 factory.ExtractContainer(containerType));
         }
 
-        public byte ExtractStandardVersion() => code.Extract(new StdVersionCoder());
+        public byte ExtractStandardVersion() => binary.Extract(new StdVersionCoder());
 
-        public byte ExtractContainerId() => code.Extract(new IdCoder());
+        public byte ExtractContainerId() => binary.Extract(new IdCoder());
 
         public Container ExtractContainer(Type containerType)
         {
@@ -71,12 +71,12 @@ namespace ModelDigitalisationArchitecture.Infrastructure.Digitalisation.Model
             return new Container2(param2, param3s, enum1);
         }
 
-        private Enum1 ExtractEnum1() => (Enum1)code.Extract(new ByteCoder(3));
-        private Parameter1 ExtractParameter1() => new(code.Extract(new IntCoder(4)));
-        private Parameter2 ExtractParameter2() => new(code.Extract(new DblCoder(6)));
-        private Parameter3 ExtractParameter3() => new(code.Extract(new DblExpCoder(4, 3)));
-        private Escaper ExtractEscaper() => new(code.Extract(new BoolCoder()));
-        private Repeater ExtractRepeater() => new(code.Extract(new BoolCoder()));
+        private Enum1 ExtractEnum1() => (Enum1)binary.Extract(new ByteCoder(3));
+        private Parameter1 ExtractParameter1() => new(binary.Extract(new IntCoder(4)));
+        private Parameter2 ExtractParameter2() => new(binary.Extract(new DblCoder(6)));
+        private Parameter3 ExtractParameter3() => new(binary.Extract(new DblExpCoder(4, 3)));
+        private Escaper ExtractEscaper() => new(binary.Extract(new BoolCoder()));
+        private Repeater ExtractRepeater() => new(binary.Extract(new BoolCoder()));
 
         #endregion
     }

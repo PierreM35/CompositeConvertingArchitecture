@@ -6,7 +6,7 @@ namespace ModelDigitalisationArchitecture.Infrastructure.Digitalisation.Extensio
 {
     public static class ContainerExtensions
     {
-        public static Code Encode(this Container container)
+        public static Binary Encode(this Container container)
         {
             if (container is Container1 container1)
                 return container1.Encode();
@@ -24,20 +24,20 @@ namespace ModelDigitalisationArchitecture.Infrastructure.Digitalisation.Extensio
         //Escaper
         //Container2
         //Enum1
-        private static Code Encode(this Container1 container1)
+        private static Binary Encode(this Container1 container1)
         {
-            var code = new Code();
-            code.Append(container1.Parameter1.Encode());
-            code.Append(container1.Parameter2.Encode());
-            code.Append(container1.Parameter3.Encode());
-            code.Append(new Code(container1.Container2 == null));
+            var binary = new Binary();
+            binary.Append(container1.Parameter1.Encode());
+            binary.Append(container1.Parameter2.Encode());
+            binary.Append(container1.Parameter3.Encode());
+            binary.Append(new Binary(container1.Container2 == null));
 
             if (container1.Container2 != null)
-                code.Append(container1.Container2.Encode());
+                binary.Append(container1.Container2.Encode());
 
-            code.Append(container1.Enum1.Encode());
+            binary.Append(container1.Enum1.Encode());
 
-            return code;
+            return binary;
         }
 
 
@@ -45,30 +45,30 @@ namespace ModelDigitalisationArchitecture.Infrastructure.Digitalisation.Extensio
         //Parameter2
         //IEnumerable<Parameter3>
         //Enum1
-        private static Code Encode(this Container2 container2)
+        private static Binary Encode(this Container2 container2)
         {
-            var code = new Code();
-            code.Append(container2.Parameter2.Encode());
+            var binary = new Binary();
+            binary.Append(container2.Parameter2.Encode());
 
             if (container2.Parameter3s.Any())
             {
-                code.Append(new Code(true));
+                binary.Append(new Binary(true));
 
                 var list = container2.Parameter3s.ToList();
                 for (int i = 0; i < list.Count - 1; i++)
                 {
-                    code.Append(list[i].Encode());
-                    code.Append(new Code(true));
+                    binary.Append(list[i].Encode());
+                    binary.Append(new Binary(true));
                 }
 
-                code.Append(list.Last().Encode());
+                binary.Append(list.Last().Encode());
             }
 
-            code.Append(new Code(false));
+            binary.Append(new Binary(false));
 
-            code.Append(container2.Enum1.Encode());
+            binary.Append(container2.Enum1.Encode());
 
-            return code;
+            return binary;
         }
     }
 }

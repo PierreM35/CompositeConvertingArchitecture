@@ -5,7 +5,7 @@ namespace ModelDigitalisationArchitecture.Infrastructure.Digitalisation.Extensio
 {
     public static class EnumExtensions
     {
-        public static Code Encode(this Enum1 enum1)
+        public static Binary Encode(this Enum1 enum1)
         {
             var enumeration = new Enumeration(new Enum1(), (byte)enum1, 3);
             return enumeration.Encode(); 

@@ -6,7 +6,7 @@ namespace ModelDigitalisationArchitecture.Infrastructure.Digitalisation.Abstract
     {
         public byte BitsQuantity { get; } = bitsQuantity;
 
-        public abstract Code Encode(T value);
-        public abstract T Decode(Code value);
+        public abstract Binary Encode(T value);
+        public abstract T Decode(Binary value);
     }
 }

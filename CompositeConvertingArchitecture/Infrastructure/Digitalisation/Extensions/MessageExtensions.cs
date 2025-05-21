@@ -6,19 +6,19 @@ namespace ModelDigitalisationArchitecture.Infrastructure.Digitalisation.Extensio
 {
     internal static class MessageExtensions
     {
-        public static Code Encode(this Message message)
+        public static Binary Encode(this Message message)
         {
-            var code = new Code();
+            var binary = new Binary();
 
             var versionEncoder = new StdVersionCoder();
-            code.Append(versionEncoder.Encode(message.StandardVersion));
+            binary.Append(versionEncoder.Encode(message.StandardVersion));
 
             var idEncoder = new IntCoder(4);
-            code.Append(idEncoder.Encode(message.ContainerId));
+            binary.Append(idEncoder.Encode(message.ContainerId));
 
-            code.Append(message.Container.Encode());
+            binary.Append(message.Container.Encode());
 
-            return code;
+            return binary;
         }
     }
 }

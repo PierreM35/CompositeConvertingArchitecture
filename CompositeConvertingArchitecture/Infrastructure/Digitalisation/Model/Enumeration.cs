@@ -24,7 +24,7 @@ namespace ModelDigitalisationArchitecture.Infrastructure.Digitalisation.Model
             throw new InvalidOperationException("Index invalid");
         }
 
-        public  Code Encode()
+        public  Binary Encode()
         {
             var coder = new ByteCoder(bitSize);
             return coder.Encode(index);

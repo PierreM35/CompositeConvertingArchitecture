@@ -5,12 +5,12 @@ namespace ModelDigitalisationArchitecture.Infrastructure.Digitalisation.Coders
 {
     public class DblExpCoder(byte bitNumberBase, byte bitNumberExp) : Coder<double>((byte)(bitNumberBase + bitNumberExp))
     {
-        public override double Decode(Code code)
+        public override double Decode(Binary code)
         {
             throw new NotImplementedException();
         }
 
-        public override Code Encode(double value)
+        public override Binary Encode(double value)
         {
             throw new NotImplementedException();
         }
