@@ -1,6 +1,6 @@
 ﻿using ModelDigitalisationArchitecture.Domain.Abstractions;
 using ModelDigitalisationArchitecture.Domain.Model;
-using ModelDigitalisationArchitecture.Infrastructure.Digitalisation;
+using ModelDigitalisationArchitecture.Infrastructure.Digitalisation.Extensions;
 using ModelDigitalisationArchitecture.Infrastructure.Digitalisation.Model;
 
 namespace CompositeConvertingArchitectureTests.Utils
@@ -9,18 +9,17 @@ namespace CompositeConvertingArchitectureTests.Utils
     {
         public event EventHandler<Message> MessageReceived;
 
-        public void Receive(Binary code) => MessageReceived?.Invoke(this, Decode(code));
+        public void Receive(Binary binary) => MessageReceived?.Invoke(this, Decode(binary));
 
-        private static Message Decode(Binary code)
+        private static Message Decode(Binary binary)
         {
-            var codingService = new CodingService();
-            return codingService.Decode(code);
+            var codingService = new Factory(binary);
+            return codingService.ExtractMessage();
         }
 
         public void Send(Message message)
         {
-            var codingService = new CodingService();
-            var code = codingService.Encode(message);
+            var code = message.Encode();
 
             throw new NotImplementedException();        //send code using some process
         }

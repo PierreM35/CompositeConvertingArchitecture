@@ -4,7 +4,7 @@ using ModelDigitalisationArchitecture.Infrastructure.Digitalisation.Model;
 
 namespace ModelDigitalisationArchitecture.Infrastructure.Digitalisation.Extensions
 {
-    internal static class MessageExtensions
+    public static class MessageExtensions
     {
         public static Binary Encode(this Message message)
         {

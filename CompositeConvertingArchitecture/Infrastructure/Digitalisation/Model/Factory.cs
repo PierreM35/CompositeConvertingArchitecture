@@ -6,7 +6,7 @@ using ModelDigitalisationArchitecture.Infrastructure.Digitalisation.Coders;
 
 namespace ModelDigitalisationArchitecture.Infrastructure.Digitalisation.Model
 {
-    internal class Factory(Binary binary)
+    public class Factory(Binary binary)
     {
         public Message ExtractMessage()
         {

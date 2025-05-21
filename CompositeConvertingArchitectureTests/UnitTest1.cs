@@ -2,10 +2,10 @@ using ModelDigitalisationArchitecture.Application;
 using ModelDigitalisationArchitecture.Domain.Abstractions;
 using ModelDigitalisationArchitecture.Domain.Enums;
 using ModelDigitalisationArchitecture.Domain.Model;
-using ModelDigitalisationArchitecture.Infrastructure.Coding;
 using CompositeConvertingArchitectureTests.Utils;
 using Moq;
 using ModelDigitalisationArchitecture.Infrastructure.Digitalisation.Extensions;
+using ModelDigitalisationArchitecture.Infrastructure.Digitalisation.Model;
 
 namespace CompositeConvertingArchitectureTests
 {
@@ -53,8 +53,7 @@ namespace CompositeConvertingArchitectureTests
                 messageReceived = message;
             };
 
-            var codingService = new CodingService();
-            _messageService.Receive(codingService.Encode(_message));
+            _messageService.Receive(_message.Encode());
 
             Assert.Multiple(() =>
             {
@@ -73,7 +72,8 @@ namespace CompositeConvertingArchitectureTests
                 Enum1.d);
 
             var code = container1.Encode();
-            code.ExtractContainer(typeof(Container1));
+            var factory = new Factory(code);
+            var container = factory.ExtractContainer(typeof(Container1));
 
             Assert.Pass();
         }
