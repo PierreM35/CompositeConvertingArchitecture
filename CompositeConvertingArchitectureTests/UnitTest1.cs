@@ -1,4 +1,4 @@
-using CompositeConvertingArchitectureTests.Utils;
+using DigitalMessageServiceTests.Utils;
 using Moq;
 using ModelDigitalisationArchitecture.Abstractions;
 using ModelDigitalisationArchitecture.Model;
@@ -6,7 +6,7 @@ using ModelDigitalisationArchitecture.Enums;
 using DigitalMessageService.Extensions;
 using DigitalMessageService.Model;
 
-namespace CompositeConvertingArchitectureTests
+namespace DigitalMessageServiceTests
 {
     public class Tests
     {

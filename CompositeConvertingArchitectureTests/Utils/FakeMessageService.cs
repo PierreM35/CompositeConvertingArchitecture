@@ -3,7 +3,7 @@ using ModelDigitalisationArchitecture.Abstractions;
 using ModelDigitalisationArchitecture.Model;
 using DigitalMessageService.Extensions;
 
-namespace CompositeConvertingArchitectureTests.Utils
+namespace DigitalMessageServiceTests.Utils
 {
     internal class FakeMessageService : IMessageService
     {

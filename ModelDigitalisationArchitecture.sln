@@ -5,7 +5,7 @@ VisualStudioVersion = 17.12.35527.113
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModelDigitalisationArchitecture", "CompositeConvertingArchitecture\ModelDigitalisationArchitecture.csproj", "{3E52BA5F-871B-439B-BD50-3C74DBF346E1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModelDigitalisationArchitectureTests", "CompositeConvertingArchitectureTests\ModelDigitalisationArchitectureTests.csproj", "{C84BD47F-BFA1-4ED8-B5D3-70C6ABD675A1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigitalMessageServiceTests", "CompositeConvertingArchitectureTests\DigitalMessageServiceTests.csproj", "{C84BD47F-BFA1-4ED8-B5D3-70C6ABD675A1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrpcMessageService", "GrpcMessageService\GrpcMessageService.csproj", "{7F728D36-F876-43F5-A347-FAF4284C8921}"
 EndProject
