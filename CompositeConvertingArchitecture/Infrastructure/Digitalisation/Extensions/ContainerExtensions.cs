@@ -40,7 +40,6 @@ namespace ModelDigitalisationArchitecture.Infrastructure.Digitalisation.Extensio
             return binary;
         }
 
-
         //Container structure:
         //Parameter2
         //IEnumerable<Parameter3>

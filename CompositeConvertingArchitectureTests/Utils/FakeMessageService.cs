@@ -9,9 +9,9 @@ namespace CompositeConvertingArchitectureTests.Utils
     {
         public event EventHandler<Message> MessageReceived;
 
-        public void Receive(Code code) => MessageReceived?.Invoke(this, Decode(code));
+        public void Receive(Binary code) => MessageReceived?.Invoke(this, Decode(code));
 
-        private static Message Decode(Code code)
+        private static Message Decode(Binary code)
         {
             var codingService = new CodingService();
             return codingService.Decode(code);
