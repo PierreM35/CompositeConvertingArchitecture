@@ -20,6 +20,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\CompositeConvertingArchitecture\ModelDigitalisationArchitecture.csproj" />
+    <ProjectReference Include="..\DigitalMessageService\DigitalMessageService.csproj" />
   </ItemGroup>
 
   <ItemGroup>

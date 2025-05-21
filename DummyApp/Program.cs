@@ -1,5 +1,5 @@
-﻿using ModelDigitalisationArchitecture.Domain.Abstractions;
-using ModelDigitalisationArchitecture.Domain.Model;
+﻿using ModelDigitalisationArchitecture.Abstractions;
+using ModelDigitalisationArchitecture.Model;
 
 IMessageService messageService = new GrpcMessageService.GrpcMessageService();
 messageService.MessageReceived += OnMessagereceived;

@@ -1,6 +1,6 @@
 ﻿using Grpc.Net.Client;
 using GrpcMessageService.Services;
-using ModelDigitalisationArchitecture.Domain.Abstractions;
+using ModelDigitalisationArchitecture.Abstractions;
 
 namespace GrpcMessageService
 {
@@ -15,9 +15,9 @@ namespace GrpcMessageService
             _messageService.MessageReceived += MessageReceived;
         }
 
-        public event EventHandler<ModelDigitalisationArchitecture.Domain.Model.Message> MessageReceived;
+        public event EventHandler<ModelDigitalisationArchitecture.Model.Message> MessageReceived;
 
-        public void Send(ModelDigitalisationArchitecture.Domain.Model.Message message)
+        public void Send(ModelDigitalisationArchitecture.Model.Message message)
         {
             var channel = GrpcChannel.ForAddress("https://localhost:7196/");
             //var channel = GrpcChannel.ForAddress("https://localhost:5000/");

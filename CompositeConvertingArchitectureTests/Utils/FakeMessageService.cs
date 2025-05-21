@@ -1,7 +1,7 @@
-﻿using ModelDigitalisationArchitecture.Domain.Abstractions;
-using ModelDigitalisationArchitecture.Domain.Model;
-using ModelDigitalisationArchitecture.Infrastructure.Digitalisation.Extensions;
-using ModelDigitalisationArchitecture.Infrastructure.Digitalisation.Model;
+﻿using DigitalMessageService.Model;
+using ModelDigitalisationArchitecture.Abstractions;
+using ModelDigitalisationArchitecture.Model;
+using DigitalMessageService.Extensions;
 
 namespace CompositeConvertingArchitectureTests.Utils
 {

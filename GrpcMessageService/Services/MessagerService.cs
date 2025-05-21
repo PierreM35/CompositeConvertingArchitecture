@@ -12,11 +12,11 @@ namespace GrpcMessageService.Services
             //_logger = logger;
         }
 
-        public event EventHandler<ModelDigitalisationArchitecture.Domain.Model.Message> MessageReceived;
+        public event EventHandler<ModelDigitalisationArchitecture.Model.Message> MessageReceived;
       
         public override Task<MessageSent> SendMessage(Message request, ServerCallContext context)
         {
-            MessageReceived?.Invoke(null, new ModelDigitalisationArchitecture.Domain.Model.Message(
+            MessageReceived?.Invoke(null, new ModelDigitalisationArchitecture.Model.Message(
                 (byte)request.StandardId,
                 (byte)request.ContainerId,
                 null));

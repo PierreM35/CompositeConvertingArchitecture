@@ -1,11 +1,10 @@
-using ModelDigitalisationArchitecture.Application;
-using ModelDigitalisationArchitecture.Domain.Abstractions;
-using ModelDigitalisationArchitecture.Domain.Enums;
-using ModelDigitalisationArchitecture.Domain.Model;
 using CompositeConvertingArchitectureTests.Utils;
 using Moq;
-using ModelDigitalisationArchitecture.Infrastructure.Digitalisation.Extensions;
-using ModelDigitalisationArchitecture.Infrastructure.Digitalisation.Model;
+using ModelDigitalisationArchitecture.Abstractions;
+using ModelDigitalisationArchitecture.Model;
+using ModelDigitalisationArchitecture.Enums;
+using DigitalMessageService.Extensions;
+using DigitalMessageService.Model;
 
 namespace CompositeConvertingArchitectureTests
 {
@@ -22,7 +21,6 @@ namespace CompositeConvertingArchitectureTests
             //_messageServiceMock.SetupAdd(r => r.MessageReceived += R_MessageReceived);
             //_app = new App(_messageServiceMock.Object);
             _messageService = new FakeMessageService();
-            var app = new App(_messageService);
 
             var p1 = new Parameter1(8);
             var p2 = new Parameter2(56.7);
