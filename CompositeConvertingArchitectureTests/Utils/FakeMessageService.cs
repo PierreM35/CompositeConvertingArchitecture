@@ -13,13 +13,13 @@ namespace DigitalMessageServiceTests.Utils
 
         private static Message Decode(Binary binary)
         {
-            var codingService = new Factory(binary);
-            return codingService.ExtractMessage();
+            var factory = new Factory(binary);
+            return factory.ExtractMessage();
         }
 
-        public void Send(Message message)
+        public void Send(Message message) 
         {
-            var code = message.Encode();
+            var binary = message.Encode();
 
             throw new NotImplementedException();        //send code using some process
         }
