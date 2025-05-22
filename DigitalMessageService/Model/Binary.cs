@@ -1,22 +1,23 @@
 ﻿using DigitalMessageService.Abstractions;
-using DigitalMessageService.Extensions;
 
 namespace DigitalMessageService.Model
 {
-    public class Binary
+    public class Binary : Queue<bool>
     {
-        private readonly Queue<bool> _bits;
+        public Binary() : base() { }
+        public Binary(bool bit) : base([bit]) { }
+        public Binary(IEnumerable<bool> bits) : base(bits) { }
 
-        public int Length => _bits.Count;
-        public bool[] Bits => [.. _bits];
-
-        public Binary() => _bits = new Queue<bool>();
-        public Binary(bool bit) : this() => _bits.Enqueue(bit);
-        public Binary(IEnumerable<bool> bits) => _bits = new(bits);
-
-        public void Append(Binary binary) => _bits.Enqueue(binary._bits);
+        public void Append(Binary binary) => binary.ToList().ForEach(Enqueue);
         public T Extract<T>(Coder<T> coder) => coder.Decode(Cut(coder.BitsQuantity));
+       
+        private Binary Cut(byte quantity)
+        {
+            var items = new List<bool>();
+            for (int i = 0; i < quantity; i++)
+                items.Add(Dequeue());
 
-        private Binary Cut(byte quantity) => new(_bits.Dequeue(quantity));
+            return new(items);
+        }
     }
 }
