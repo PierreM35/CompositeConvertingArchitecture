@@ -72,9 +72,9 @@ namespace DigitalMessageService.Model
         }
 
         private Enum1 ExtractEnum1() => (Enum1)binary.Extract(new ByteCoder(3));
-        private Parameter1 ExtractParameter1() => new(binary.Extract(new IntCoder(4)));
-        private Parameter2 ExtractParameter2() => new(binary.Extract(new DblCoder(6)));
-        private Parameter3 ExtractParameter3() => new(binary.Extract(new DblExpCoder(4, 3)));
+        private Parameter1 ExtractParameter1() => new(binary.Extract(CoderGetter.ForParameter1()));
+        private Parameter2 ExtractParameter2() => new(binary.Extract(CoderGetter.ForParameter2()));
+        private Parameter3 ExtractParameter3() => new(binary.Extract(CoderGetter.ForParameter3()));
         private Escaper ExtractEscaper() => new(binary.Extract(new BoolCoder()));
         private Repeater ExtractRepeater() => new(binary.Extract(new BoolCoder()));
 
