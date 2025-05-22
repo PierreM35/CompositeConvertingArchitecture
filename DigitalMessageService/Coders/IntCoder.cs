@@ -15,7 +15,7 @@ namespace DigitalMessageService.Coders
 
         public override int Decode(Binary binary)
         {
-            if (binary.Length < BitsQuantity)
+            if (binary.Count < BitsQuantity)
                 throw new ArgumentException($"Awaited binary must have {BitsQuantity} bits. Has {binary.Count}.");
 
             throw new NotImplementedException();

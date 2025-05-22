@@ -1,5 +1,4 @@
-﻿using DigitalMessageService.Abstractions;
-using DigitalMessageService.Coders;
+﻿using DigitalMessageService.Coders;
 using DigitalMessageService.Model;
 using ModelDigitalisationArchitecture.Model;
 
@@ -7,7 +6,7 @@ namespace DigitalMessageService.Extensions
 {
     public static class MessageExtensions
     {
-        public static Binary Encode<T>(this Message<T> message) where T : IEncodable
+        public static Binary Encode(this Message message)
         {
             var binary = new Binary();
 
@@ -17,7 +16,7 @@ namespace DigitalMessageService.Extensions
             var idEncoder = new IdCoder();
             binary.Append(idEncoder.Encode(message.ContainerId));
 
-            binary.Append(message.Body.Encode());
+            binary.Append(message.Container.Encode());
 
             return binary;
         }
