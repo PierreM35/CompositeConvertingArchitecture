@@ -10,25 +10,26 @@ namespace DigitalMessageService.Model
     {
         public Message ExtractMessage()
         {
-            var factory = new Factory(binary);
-            var stdVersion = factory.ExtractStandardVersion();
+            var stdVersion = ExtractStandardVersion();
             var standard = StandardSource.Standards.FirstOrDefault(s => s.Id == stdVersion)
                 ?? throw new Exception($"Standard version {stdVersion} doesn't exist.");
 
-            var containerId = factory.ExtractContainerId();
+            var containerId = ExtractContainerId();
             var containerType = standard.ContainerTypes[containerId];
 
             return new Message(
                 stdVersion,
                 containerId,
-                factory.ExtractContainer(containerType));
+                ExtractContainer(containerType));
         }
 
-        public byte ExtractStandardVersion() => binary.Extract(new StdVersionCoder());
+        #region Private helpers
 
-        public byte ExtractContainerId() => binary.Extract(new IdCoder());
+        private byte ExtractStandardVersion() => binary.Extract(new StdVersionCoder());
 
-        public Container ExtractContainer(Type containerType)
+        private byte ExtractContainerId() => binary.Extract(new IdCoder());
+
+        private Container ExtractContainer(Type containerType)
         {
             if (containerType == typeof(Container1))
                 return ExtractContainer1();
@@ -38,8 +39,6 @@ namespace DigitalMessageService.Model
 
             throw new NotImplementedException($"{containerType} not implemented yet.");
         }
-
-        #region Private helpers
 
         private Container1 ExtractContainer1()
         {
