@@ -2,19 +2,17 @@
 using ModelDigitalisationArchitecture.Model;
 
 IMessageService messageService = new GrpcMessageService.GrpcMessageService();
-messageService.MessageReceived += OnMessagereceived;
-
-// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+messageService.MessageReceived += OnMessageReceived;
 
 Console.WriteLine("Press anything to send message");
+var input = Console.ReadLine();
+while (!input.Equals("exit"))
+{
+    messageService.Send(new Message(4, 8, null));
+    input = Console.ReadLine();
+}
 
-Console.ReadLine();
-messageService.Send(new Message(4, 8, null));
-
-
-
-void OnMessagereceived(object? sender, Message e)
+void OnMessageReceived(object? sender, Message e)
 {
     Console.WriteLine($"Message received: Std: {e.StandardVersion}, ContainerId: {e.ContainerId}!");
 }

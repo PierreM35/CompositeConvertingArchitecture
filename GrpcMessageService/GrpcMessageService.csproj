@@ -7,7 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Protobuf Include="Protos\message.proto" GrpcServices="Both" />
+    <Compile Remove="Services\MessagerService.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Protobuf Include="Protos\message.proto" GrpcServices="Client" />
   </ItemGroup>
 
   <ItemGroup>
@@ -16,6 +20,10 @@
 
   <ItemGroup>
     <ProjectReference Include="..\CompositeConvertingArchitecture\ModelDigitalisationArchitecture.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Services\" />
   </ItemGroup>
 
 </Project>
